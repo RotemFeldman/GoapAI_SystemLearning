@@ -1,5 +1,6 @@
 ﻿using System;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 namespace GOAP.ScriptableGoap
@@ -21,12 +22,13 @@ namespace GOAP.ScriptableGoap
     public abstract class BlackboardValue<T> : BlackboardValue
     {
         [SerializeField]
-        [LabelText("@\"Value (\" + ValueType.Name.ToLower() + \")\"")]
+        [LabelText("@\"Value (\" + niceName.ToLower() + \")\"")]
         private T _value;
         public T Value => _value;
         
         protected BlackboardValue(T value) => _value = value;
         public override Type ValueType => typeof(T);
+        private string niceName => ValueType.GetNiceName();
     }
     
     [Serializable]

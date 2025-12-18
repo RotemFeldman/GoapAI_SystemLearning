@@ -10,11 +10,8 @@ namespace GOAP.ScriptableGoap.SO
         [SerializeField] private CompareType _compareType = CompareType.Equal;
 
         [Header("Operands")]
-        [InlineProperty,HideReferenceObjectPicker]
-        [SerializeField] private BlackboardBind<float> _aFloat;
-        
-        [InlineProperty,HideReferenceObjectPicker]
-        [SerializeField] private BlackboardBind<float> _bFloat;
+        [SerializeField] private BlackboardBind<float> _aFloat = new();
+        [SerializeField] private BlackboardBind<float> _bFloat = new();
 
         [Tooltip("If true and a key is missing, the belief evaluates to false.")]
         [SerializeField] private bool _failIfMissingKey = true;
@@ -30,8 +27,6 @@ namespace GOAP.ScriptableGoap.SO
 
             if (failMissing) 
             {
-                Debug.Log(bindA.TryGetValue(blackBoard, out aVal));
-                
                 if (!bindA.TryGetValue(blackBoard, out aVal)) return false;
                 if (!bindB.TryGetValue(blackBoard, out bVal)) return false;
             }

@@ -351,7 +351,6 @@ GameObject:
   - component: {fileID: 1720669739}
   - component: {fileID: 1720669738}
   - component: {fileID: 1720669737}
-  - component: {fileID: 1720669740}
   m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
@@ -399,13 +398,13 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: b
+      Data: a
     - Name: $v
       Entry: 7
       Data: 2|GOAP.ScriptableGoap.FloatValue, GOAP
     - Name: _value
       Entry: 4
-      Data: 5
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -417,30 +416,12 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: a
+      Data: b
     - Name: $v
       Entry: 7
       Data: 3|GOAP.ScriptableGoap.FloatValue, GOAP
     - Name: _value
       Entry: 4
-      Data: 5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: cvheck
-    - Name: $v
-      Entry: 7
-      Data: 4|GOAP.ScriptableGoap.IntValue, GOAP
-    - Name: _value
-      Entry: 3
       Data: 0
     - Name: 
       Entry: 8
@@ -456,10 +437,28 @@ MonoBehaviour:
       Data: c
     - Name: $v
       Entry: 7
-      Data: 5|GOAP.ScriptableGoap.FloatValue, GOAP
+      Data: 4|GOAP.ScriptableGoap.FloatValue, GOAP
     - Name: _value
       Entry: 4
-      Data: 0.3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: megachar
+    - Name: $v
+      Entry: 7
+      Data: 5|GOAP.ScriptableGoap.IntValue, GOAP
+    - Name: _value
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -473,7 +472,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   _newKeyName: 
-  _newType: 2
+  _newType: 1
 --- !u!114 &1720669738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,40 +503,57 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 7
-      Data: 1|GOAP.ScriptableGoap.SO.CompareFloatBeliefDefinition, GOAP
+      Data: 1|GOAP.ScriptableGoap.SO.TransformDistanceBeliefDefinition, GOAP
     - Name: _name
       Entry: 1
-      Data: IsHungry
-    - Name: _compareType
+      Data: In Range Of Food
+    - Name: DistanceCheckType
       Entry: 3
       Data: 0
-    - Name: _aFloat
+    - Name: TransformA
       Entry: 7
-      Data: 2|BlackboardBind`1[[System.Single, mscorlib]], GOAP
+      Data: 2|BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        GOAP
     - Name: _bindType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: _constantValue
-      Entry: 4
-      Data: 5
+      Entry: 6
+      Data: 
     - Name: _blackboardKey
-      Entry: 1
-      Data: a
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
-    - Name: _bFloat
+    - Name: TransformB
       Entry: 7
-      Data: 3|BlackboardBind`1[[System.Single, mscorlib]], GOAP
+      Data: 3|BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        GOAP
     - Name: _bindType
       Entry: 3
-      Data: 0
+      Data: 1
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Threshold
+      Entry: 7
+      Data: 4|BlackboardBind`1[[System.Single, mscorlib]], GOAP
+    - Name: _bindType
+      Entry: 3
+      Data: 1
     - Name: _constantValue
       Entry: 4
       Data: 0
     - Name: _blackboardKey
-      Entry: 1
-      Data: b
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -569,24 +585,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1720669740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1720669735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0223ac4c76e8ddf46bd6229b84c25763, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  providesServices:
-  - service: {fileID: 1720669737}
-    definingType:
-      scriptAssetGuid: 
-      TypeNameAndAssembly: GOAP.ScriptableGoap.Helpers.IBlackboardKeyProvider, GOAP
-  toClients: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -11,10 +11,7 @@ namespace GOAP.ScriptableGoap
     [Service(typeof(IBlackboardKeyProvider))]
     public class AgentBlackBoard : SerializedMonoBehaviour, IBlackboardKeyProvider
     {
-        [Space,SerializeField, PropertyOrder(1)] 
-        [DictionaryDrawerSettings(
-            DisplayMode = DictionaryDisplayOptions.ExpandedFoldout
-            )]
+        [Space, SerializeField, Searchable, PropertyOrder(1)] 
         private Dictionary<string, BlackboardValue> _blackboard = new();
 
         [SerializeField, HideLabel, HorizontalGroup("Split")] private string _newKeyName;

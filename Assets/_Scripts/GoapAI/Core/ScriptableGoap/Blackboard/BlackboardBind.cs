@@ -7,7 +7,8 @@ using Sisus.Init;
 using Sisus.Init.Internal;
 using UnityEngine;
 
-[Serializable]
+[Serializable,InlineProperty,HideReferenceObjectPicker]
+[LabelText("@$property.NiceName + \" (\" + Sirenix.Utilities.TypeExtensions.GetNiceName($property.ValueEntry.TypeOfValue.GetGenericArguments()[0]) + \")\"")]
 public class BlackboardBind<T>
 {
     public enum BindType { BlackboardKey, Constant }
@@ -26,6 +27,7 @@ public class BlackboardBind<T>
     [SerializeField] private string _blackboardKey;
     
     private int _bindTypeInt => (int)_bindType;
+    public string typeName => typeof(T).Name;
 
     public bool TryGetValue(AgentBlackBoard blackBoard, out T _value)
     {
