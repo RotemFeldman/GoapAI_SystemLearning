@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace GOAP.ScriptableGoap.SO
@@ -7,12 +8,30 @@ namespace GOAP.ScriptableGoap.SO
     [Serializable]
     public partial class ActionDefinition 
     {
-        [field:SerializeField] public string Name { get; private set; }
-        [field:SerializeField] public float Cost { get; private set; }
+        [BoxGroup("Action Settings")]
+        [HorizontalGroup("Action Settings/Header", Width = 0.1f)]
+        [HideLabel]
+        public Color InspectorColor = Color.cyan;
         
+        [BoxGroup("Action Settings")]
+        [HorizontalGroup("Action Settings/Header")]
+        [LabelWidth(50)]
+        [field:SerializeField] public string Name { get; private set; }
+
+        [BoxGroup("Action Settings")]
+        [VerticalGroup("Action Settings/Details")]
+        public float Cost;
+        
+        [BoxGroup("Action Settings")]
+        [VerticalGroup("Action Settings/Details")]
         [SerializeField] private List<BeliefName> preconditions  = new ();
+        
+        [BoxGroup("Action Settings")]
+        [VerticalGroup("Action Settings/Details")]
         [SerializeField] private List<BeliefName> effects = new ();
 
+        [BoxGroup("Action Settings")]
+        [VerticalGroup("Action Settings/Details")]
         [field: SerializeReference] public BaseScriptableActionStrategy strategy;
 
         public AgentAction Build(ScriptableGoapAgent agent, AgentBlackBoard blackBoard)

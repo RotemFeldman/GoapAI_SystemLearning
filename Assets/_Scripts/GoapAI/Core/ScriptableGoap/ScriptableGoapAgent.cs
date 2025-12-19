@@ -10,7 +10,7 @@ using Sisus.Init;
 namespace GOAP.ScriptableGoap
 {
     [RequireComponent(typeof(AgentBlackBoard))]
-    [Service(typeof(IScriptableAgentProvider))]
+    [Service(typeof(IScriptableAgentProvider),FindFromScene = true)]
     public class ScriptableGoapAgent : MonoAgent, IScriptableAgentProvider
     {
         [SerializeField] private AgentBlackBoard _blackBoard;
@@ -37,7 +37,7 @@ namespace GOAP.ScriptableGoap
         [ListDrawerSettings(ListElementLabelName = "@this.Name")]
         List<GoalDefinition> _goals = new();
         
-        private void Start()
+        /*private void Start()
         {
             var beliefsInfo = string.Join("\n", Beliefs.Select(b => 
                 $"  • {b.Key} (Current State: <color={(b.Value.Evaluate() ? "green" : "red")}>{b.Value.Evaluate()}</color>)"));
@@ -55,7 +55,7 @@ namespace GOAP.ScriptableGoap
                       $"<b>Runtime Beliefs ({Beliefs.Count}):</b>\n{beliefsInfo}\n\n" +
                       $"<b>Available Actions ({Actions.Count}):</b>\n{actionsInfo}\n\n" +
                       $"<b>Active Goals ({Goals.Count}):</b>\n{goalsInfo}");
-        }
+        }*/
 
         public List<BeliefDefinition> GetBeliefs()
         {

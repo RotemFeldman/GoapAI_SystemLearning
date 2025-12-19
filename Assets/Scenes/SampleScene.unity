@@ -684,6 +684,24 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 1|GOAP.ScriptableGoap.SO.TransformDistanceBeliefDefinition, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _name
       Entry: 1
       Data: In Range Of Food
@@ -746,6 +764,24 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 5|GOAP.ScriptableGoap.SO.TransformDistanceBeliefDefinition, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _name
       Entry: 1
       Data: In Range Of Tree
@@ -808,6 +844,24 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 9|GOAP.ScriptableGoap.SO.TransformDistanceBeliefDefinition, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _name
       Entry: 1
       Data: Not In Range Of Food
@@ -870,6 +924,24 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 13|GOAP.ScriptableGoap.SO.TransformDistanceBeliefDefinition, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: _name
       Entry: 1
       Data: Not In Range Of Tree
@@ -937,16 +1009,18 @@ MonoBehaviour:
       Data: 
   _blackBoard: {fileID: 1720669737}
   _actions:
-  - <Name>k__BackingField: Move To Food
-    <Cost>k__BackingField: 0
+  - InspectorColor: {r: 0, g: 1, b: 1, a: 1}
+    <Name>k__BackingField: Move To Food
+    Cost: 0
     preconditions:
     - name: Not In Range Of Food
     effects:
     - name: In Range Of Food
     strategy:
       rid: 7360486417862492237
-  - <Name>k__BackingField: Move To Tree
-    <Cost>k__BackingField: 0
+  - InspectorColor: {r: 0, g: 1, b: 1, a: 1}
+    <Name>k__BackingField: Move To Tree
+    Cost: 0
     preconditions:
     - name: Not In Range Of Tree
     effects:
