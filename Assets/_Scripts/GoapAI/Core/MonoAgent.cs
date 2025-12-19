@@ -18,7 +18,7 @@ namespace GOAP
         
         private GoapPlanner _planner;
         private IAgentGoal _lastGoal;
-        protected BeliefFactory beliefFactory;
+        private BeliefFactory _beliefFactory;
 
         protected virtual void Awake()
         {
@@ -94,16 +94,16 @@ namespace GOAP
             Actions = new HashSet<IAgentAction>();
             Goals = new HashSet<IAgentGoal>();
             
-            beliefFactory = new BeliefFactory(this, Beliefs);
+            _beliefFactory = new BeliefFactory(this, Beliefs);
             
-            SetupBeliefs();
+            SetupBeliefs(_beliefFactory);
             SetupActions();
             SetupGoals();
         }
         
-        protected virtual void SetupBeliefs()
+        protected virtual void SetupBeliefs(BeliefFactory factory)
         {
-            beliefFactory.AddBelief("Nothing", () => false);
+            factory.AddBelief("Nothing", () => false);
         }
         protected virtual void SetupActions()
         {

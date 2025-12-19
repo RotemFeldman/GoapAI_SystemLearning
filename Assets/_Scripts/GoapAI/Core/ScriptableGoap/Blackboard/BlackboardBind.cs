@@ -8,7 +8,7 @@ using Sisus.Init.Internal;
 using UnityEngine;
 
 [Serializable,InlineProperty,HideReferenceObjectPicker]
-[LabelText("@$property.NiceName + \" (\" + Sirenix.Utilities.TypeExtensions.GetNiceName($property.ValueEntry.TypeOfValue.GetGenericArguments()[0]) + \")\"")]
+[LabelText("@$property.NiceName + \" (\" + Sirenix.Utilities.TypeExtensions.GetNiceName($property.ValueEntry.TypeOfValue.GetGenericArguments()[0]).ToLower() + \")\"")]
 public class BlackboardBind<T>
 {
     public enum BindType { BlackboardKey, Constant }

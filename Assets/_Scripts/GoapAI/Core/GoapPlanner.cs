@@ -43,17 +43,12 @@ namespace GOAP
             // Order actions by cost, ascending
             var orderedActions = actions.OrderBy(a => a.Cost);
             
+            var requiredEffects = new HashSet<IAgentBelief>(parent.RequiredEffects);
+            requiredEffects.RemoveWhere(b => b.Evaluate());
+            
+            if(requiredEffects.Count == 0) return true;
+            
             foreach (var action in orderedActions) {
-                var requiredEffects = parent.RequiredEffects;
-                
-                // Remove any effects that evaluate to true, there is no action to take
-                requiredEffects.RemoveWhere(b => b.Evaluate());
-                
-                // If there are no required effects to fulfill, we have a plan
-                if (requiredEffects.Count == 0) {
-                    return true;
-                }
-    
                 if (action.Effects.Any(requiredEffects.Contains)) {
                     var newRequiredEffects = new HashSet<IAgentBelief>(requiredEffects);
                     newRequiredEffects.ExceptWith(action.Effects);

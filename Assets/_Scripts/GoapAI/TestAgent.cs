@@ -1,16 +1,15 @@
 ﻿using GOAP;
-using GOAP.Actions;
 using UnityEngine;
 
 namespace _Scripts.GoapAI
 {
     public class TestAgent : MonoAgent
     {
-        protected override void SetupBeliefs()
+        protected override void SetupBeliefs(BeliefFactory factory)
         {
-            base.SetupBeliefs();
-            beliefFactory.AddBelief("Happy", () => false);
-            beliefFactory.AddBelief("Happy1", () => false);
+            base.SetupBeliefs(factory);
+            factory.AddBelief("Happy", () => false);
+            factory.AddBelief("Happy1", () => false);
         }
 
         protected override void SetupActions()
@@ -18,13 +17,13 @@ namespace _Scripts.GoapAI
             Actions.Add(new AgentAction.Builder("Idle")
                 .WithCost(1)
                 .WithEffect(Beliefs["Happy"])
-                .WithStrategy(new IdleStrategy(5))
+                .WithStrategy(new IdleStrategy())
                 .Build());
 
             Actions.Add(new AgentAction.Builder("Move")
                 .WithCost(1)
                 .WithEffect(Beliefs["Happy1"])
-                .WithStrategy(new MoveStrategy(5))
+                .WithStrategy(new MoveStrategy())
                 .Build());
         }
 

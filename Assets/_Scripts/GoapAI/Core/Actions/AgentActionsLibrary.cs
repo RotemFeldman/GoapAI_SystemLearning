@@ -1,62 +1,69 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace GOAP.Actions
+namespace GOAP
 {
+    [Serializable]
     public class IdleStrategy : IActionStrategy
     {
         private float _time;
-        private float _duration;
+        [SerializeField] private float duration;
         
-        public bool Complete => _time >= _duration;
+        public bool Complete => _time >= duration;
         public bool CanPerform => true;
+        
+        public IdleStrategy(){}
         
         public IdleStrategy(float duration)
         {
-            _duration = duration;
+            this.duration = duration;
             _time = 0;
         }
         
         public void Start()
         {
             _time = 0;
-            Debug.Log("started Idle action");
         }
 
         public void Update(float deltaTime)
         {
             _time += deltaTime;
-            Debug.Log("updating Idle action");
         }
 
         public void Stop()
         {
-            Debug.Log("stop Idle action");   
         }
     }
-
+    
+    [Serializable]
     public class MoveStrategy : IActionStrategy
     {
-        private float _time;
-        private float _duration;
+        [SerializeField] private Transform self; 
+        [SerializeField] private Transform target; 
         
-        public bool Complete => _time >= _duration;
+        [SerializeField] private float distanceThreshold = 0.1f;
+        
+        public bool Complete => Vector3.Distance(self.position, target.position) < distanceThreshold;
         public bool CanPerform => true;
         
-        public MoveStrategy(float duration)
+        public MoveStrategy(){}
+        
+        public MoveStrategy(Transform self, Transform target, float distanceThreshold)
         {
-            _duration = duration;
-            _time = 0;
+            this.self = self;
+            this.target = target;
+            this.distanceThreshold = distanceThreshold;
         }
         
         public void Start()
         {
-            _time = 0;
             Debug.Log("started Move action");
         }
 
         public void Update(float deltaTime)
         {
-            _time += deltaTime;
+            self.position = Vector3.MoveTowards(self.position, target.position, deltaTime);
             Debug.Log("updating Move action");
         }
 
