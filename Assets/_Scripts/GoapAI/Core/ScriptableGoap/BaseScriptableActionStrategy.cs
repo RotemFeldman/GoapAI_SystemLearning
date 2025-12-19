@@ -26,10 +26,11 @@ namespace GOAP.ScriptableGoap
     {
         [SerializeField] private BlackboardBind<Transform> self;
         [SerializeField] private BlackboardBind<Transform> target;
-        [SerializeField] private float distanceThreshold = 0.1f;
+        [SerializeField] private BlackboardBind<float> distanceThreshold;
         
         private Transform _self;
         private Transform _target;
+        private float distance;
 
         public override bool Complete => InRange();
         public override bool CanPerform => ValidateField();
@@ -37,13 +38,14 @@ namespace GOAP.ScriptableGoap
         {
             self.TryGetValue(blackBoard, out _self);
             target.TryGetValue(blackBoard, out _target);
+            distanceThreshold.TryGetValue(blackBoard, out distance);
             
             UnityEngine.Debug.Log("Started Move Strategy");
         }
 
         public override void Update(float deltaTime)
         {
-            Debug.Log("Update Move Strategy");
+            Debug.Log(_target.name + " Update Move Strategy");
             _self.position = Vector3.MoveTowards(_self.position, _target.position, deltaTime);
         }
 
@@ -54,7 +56,7 @@ namespace GOAP.ScriptableGoap
 
         private bool InRange()
         {
-            return Vector3.Distance(_self.position, _target.position) < distanceThreshold;
+            return Vector3.Distance(_self.position, _target.position) < distance;
         }
 
         private bool ValidateField()

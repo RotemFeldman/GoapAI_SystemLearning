@@ -11,10 +11,10 @@ namespace GOAP
         public IAgentGoal CurrentGoal { get; private set; }
         public ActionPlan ActionPlan { get; private set; }
         public IAgentAction CurrentAction { get; private set; }
-        
-        public Dictionary<string, IAgentBelief> Beliefs { get; private set; }
-        public HashSet<IAgentAction> Actions { get; private set; }
-        public HashSet<IAgentGoal> Goals { get; private set; }
+
+        public Dictionary<string, IAgentBelief> Beliefs { get; private set; } = new();
+        public HashSet<IAgentAction> Actions { get; private set; } = new();
+        public HashSet<IAgentGoal> Goals { get; private set; } = new();
         
         private GoapPlanner _planner;
         private IAgentGoal _lastGoal;
@@ -70,19 +70,32 @@ namespace GOAP
 
         private void CalculateGoapPlan()
         {
-            var prio = CurrentGoal?.Priority ?? 0;
-
-            HashSet<IAgentGoal> legitGoals = Goals;
-
-            if (CurrentGoal != null)
             {
-                legitGoals = new HashSet<IAgentGoal>(Goals.Where(g => g.Priority > prio));
-            }
-            
-            var newPlan = _planner.Plan(this, legitGoals, _lastGoal);
-            if (newPlan != null)
-            {
-                ActionPlan = newPlan;
+                // If we already have a plan and an active action, 
+                // only look for goals that are HIGHER priority than what we are doing.
+                if (CurrentAction != null && CurrentGoal != null)
+                {
+                    var higherPrioGoals = new HashSet<IAgentGoal>(Goals.Where(g => g.Priority > CurrentGoal.Priority));
+                    if (higherPrioGoals.Count == 0) return; // Stay on current plan
+
+                    var newPlan = _planner.Plan(this, higherPrioGoals, _lastGoal);
+                    if (newPlan != null)
+                    {
+                        // Stop current action to switch to the better one
+                        CurrentAction.Stop();
+                        CurrentAction = null;
+                        ActionPlan = newPlan;
+                    }
+                }
+                else
+                {
+                    // We are idle, look at all goals
+                    var newPlan = _planner.Plan(this, Goals, _lastGoal);
+                    if (newPlan != null)
+                    {
+                        ActionPlan = newPlan;
+                    }
+                }
             }
         }
 
@@ -90,9 +103,9 @@ namespace GOAP
         {
             _planner = new GoapPlanner();
             
-            Beliefs = new Dictionary<string, IAgentBelief>();
+            /*Beliefs = new Dictionary<string, IAgentBelief>();
             Actions = new HashSet<IAgentAction>();
-            Goals = new HashSet<IAgentGoal>();
+            Goals = new HashSet<IAgentGoal>();*/
             
             _beliefFactory = new BeliefFactory(this, Beliefs);
             
