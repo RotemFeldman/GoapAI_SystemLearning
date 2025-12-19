@@ -39,19 +39,15 @@ namespace GOAP.ScriptableGoap
             self.TryGetValue(blackBoard, out _self);
             target.TryGetValue(blackBoard, out _target);
             distanceThreshold.TryGetValue(blackBoard, out distance);
-            
-            UnityEngine.Debug.Log("Started Move Strategy");
         }
 
         public override void Update(float deltaTime)
         {
-            Debug.Log(_target.name + " Update Move Strategy");
             _self.position = Vector3.MoveTowards(_self.position, _target.position, deltaTime);
         }
 
         public override void Stop()
         {
-            Debug.Log("Stop Move Strategy");
         }
 
         private bool InRange()
