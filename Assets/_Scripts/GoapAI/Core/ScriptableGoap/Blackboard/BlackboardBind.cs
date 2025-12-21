@@ -29,7 +29,7 @@ public class BlackboardBind<T>
     private int _bindTypeInt => (int)_bindType;
     public string typeName => typeof(T).Name;
 
-    public bool TryGetValue(AgentBlackBoard blackBoard, out T _value)
+    public bool TryGetValue(BlackBoard blackBoard, out T _value)
     {
         if (_bindType == BindType.Constant)
         {

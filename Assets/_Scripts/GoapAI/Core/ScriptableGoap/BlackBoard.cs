@@ -9,7 +9,7 @@ using Sisus.Init;
 namespace GOAP.ScriptableGoap
 {
     [Service(typeof(IBlackboardKeyProvider))]
-    public class AgentBlackBoard : SerializedMonoBehaviour, IBlackboardKeyProvider
+    public class BlackBoard : SerializedMonoBehaviour, IBlackboardKeyProvider
     {
         [Space, SerializeField, Searchable, PropertyOrder(1)] 
         private Dictionary<string, BlackboardValue> _blackboard = new();

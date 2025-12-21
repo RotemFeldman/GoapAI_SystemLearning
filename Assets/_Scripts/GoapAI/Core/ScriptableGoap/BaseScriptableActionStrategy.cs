@@ -8,9 +8,9 @@ namespace GOAP.ScriptableGoap
         public abstract bool Complete { get; }
         public abstract bool CanPerform { get; }
         
-        protected AgentBlackBoard blackBoard;
+        protected BlackBoard blackBoard;
         
-        public BaseScriptableActionStrategy Init(AgentBlackBoard blackBoard)
+        public BaseScriptableActionStrategy Init(BlackBoard blackBoard)
         {
             this.blackBoard = blackBoard;
             return this;

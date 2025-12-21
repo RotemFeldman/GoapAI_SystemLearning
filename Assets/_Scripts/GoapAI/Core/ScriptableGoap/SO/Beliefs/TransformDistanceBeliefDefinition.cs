@@ -16,7 +16,7 @@ namespace GOAP.ScriptableGoap.SO
         [Tooltip("If true and a key is missing, the belief evaluates to false.")]
         [SerializeField] private bool _failIfMissingKey = true;
         
-        protected override bool Evaluate(AgentBlackBoard blackBoard)
+        protected override bool Evaluate(BlackBoard blackBoard)
         {
             var _bindA = TransformA;
             var _bindB = TransformB;

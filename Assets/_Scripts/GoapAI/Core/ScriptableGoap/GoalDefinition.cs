@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using GOAP.ScriptableGoap.SO;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace GOAP.ScriptableGoap
@@ -8,8 +9,14 @@ namespace GOAP.ScriptableGoap
     [Serializable]
     public class GoalDefinition
     {
+        [HorizontalGroup("Top", Width = 0.1f)]
+        [HideLabel]
+        public Color InspectorColor = Color.white;
+        
+        [HorizontalGroup("Top")]
         [field: SerializeField] public string Name { get; private set; }
         [field: SerializeField] public float Priority { get; private set; }
+        
         
         [SerializeField] private List<BeliefName> desiredEffects = new ();
 

@@ -6,35 +6,40 @@ using UnityEngine;
 namespace GOAP.ScriptableGoap.SO
 {
     [Serializable]
-    public partial class ActionDefinition 
+    public class ActionDefinition 
     {
-        [BoxGroup("Action Settings")]
+        [FoldoutGroup("Action Settings")]
+        [SerializeField] private string _name = "New Action";
+        public string Name => _name;
+        
+        
+        [FoldoutGroup("Action Settings")]
         [HorizontalGroup("Action Settings/Header", Width = 0.1f)]
         [HideLabel]
-        public Color InspectorColor = Color.cyan;
+        public Color InspectorColor = Color.white;
         
-        [BoxGroup("Action Settings")]
+        /*[BoxGroup("Action Settings")]
         [HorizontalGroup("Action Settings/Header")]
-        [LabelWidth(50)]
-        [field:SerializeField] public string Name { get; private set; }
+        [LabelWidth(50)]*/
+        
 
-        [BoxGroup("Action Settings")]
+        [FoldoutGroup("Action Settings")]
         [VerticalGroup("Action Settings/Details")]
         public float Cost;
         
-        [BoxGroup("Action Settings")]
+        [FoldoutGroup("Action Settings")]
         [VerticalGroup("Action Settings/Details")]
         [SerializeField] private List<BeliefName> preconditions  = new ();
         
-        [BoxGroup("Action Settings")]
+        [FoldoutGroup("Action Settings")]
         [VerticalGroup("Action Settings/Details")]
         [SerializeField] private List<BeliefName> effects = new ();
 
-        [BoxGroup("Action Settings")]
+        [FoldoutGroup("Action Settings")]
         [VerticalGroup("Action Settings/Details")]
         [field: SerializeReference] public BaseScriptableActionStrategy strategy;
 
-        public AgentAction Build(ScriptableGoapAgent agent, AgentBlackBoard blackBoard)
+        public AgentAction Build(ScriptableGoapAgent agent, BlackBoard blackBoard)
         {
             var builder = new AgentAction.Builder(Name).WithCost(Cost);
 

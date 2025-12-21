@@ -6,14 +6,15 @@ using GOAP.ScriptableGoap.SO;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Sisus.Init;
+using UnityEditor;
 
 namespace GOAP.ScriptableGoap
 {
-    [RequireComponent(typeof(AgentBlackBoard))]
+    [RequireComponent(typeof(BlackBoard))]
     [Service(typeof(IScriptableAgentProvider),FindFromScene = true)]
     public class ScriptableGoapAgent : MonoAgent, IScriptableAgentProvider
     {
-        [SerializeField] private AgentBlackBoard _blackBoard;
+        private BlackBoard _blackBoard;
 
 #if UNITY_EDITOR
         [Sirenix.OdinInspector.OnInspectorGUI]
@@ -26,17 +27,25 @@ namespace GOAP.ScriptableGoap
         }
 #endif
         
-        [ListDrawerSettings(ListElementLabelName = "@this.Name")]
+        [ListDrawerSettings(OnBeginListElementGUI = nameof(DrawBeliefElementLabel))]
         [SerializeField] List<BeliefDefinition> _beliefs = new();
         
-        [Space(30),SerializeField]
-        [ListDrawerSettings(ListElementLabelName = "@this.Name")]
-        List<ActionDefinition> _actions = new();
+        [Space(30)]
+        [ListDrawerSettings(OnBeginListElementGUI = nameof(DrawActionElementLabel))]
+        [SerializeField] List<ActionDefinition> _actions = new();
         
         [Space(30),SerializeField]
         [ListDrawerSettings(ListElementLabelName = "@this.Name")]
         List<GoalDefinition> _goals = new();
-        
+
+        private void OnValidate()
+        {
+            if (_blackBoard == null)
+            {
+                _blackBoard = GetComponent<BlackBoard>();
+            }
+        }
+
         /*private void Start()
         {
             var beliefsInfo = string.Join("\n", Beliefs.Select(b => 
@@ -92,6 +101,38 @@ namespace GOAP.ScriptableGoap
             {
                 Goals.Add(g.Build(this));
             }
+        }
+
+        private void DrawBeliefElementLabel(int index)
+        {
+            var element = _beliefs[index];
+            
+            Rect rect = GUILayoutUtility.GetRect(0,22,GUILayout.ExpandWidth(true));
+            
+            Color bg = element.InspectorColor;
+            
+            EditorGUI.DrawRect(rect, bg);
+            GUI.Label(rect, element.Name, EditorStyles.boldLabel);
+            
+            // color label
+            /*Color oldColor = GUI.color;
+            
+            GUI.color = element.InspectorColor;
+            GUILayout.Label(element.Name);
+            
+            GUI.color = oldColor;*/
+        }
+        
+        private void DrawActionElementLabel(int index)
+        {
+            var element = _actions[index];
+            
+            Rect rect = GUILayoutUtility.GetRect(0,22,GUILayout.ExpandWidth(true));
+            
+            Color bg = element.InspectorColor;
+            
+            EditorGUI.DrawRect(rect, bg);
+            GUI.Label(rect, element.Name, EditorStyles.boldLabel);
         }
     }
 }

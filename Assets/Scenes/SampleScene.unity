@@ -689,16 +689,16 @@ MonoBehaviour:
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.509803951
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.378169328
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.3254902
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -769,16 +769,16 @@ MonoBehaviour:
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.8018868
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.223166615
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.223166615
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 0.7372549
     - Name: 
       Entry: 8
       Data: 
@@ -1007,10 +1007,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _blackBoard: {fileID: 1720669737}
   _actions:
-  - InspectorColor: {r: 0, g: 1, b: 1, a: 1}
-    <Name>k__BackingField: Move To Food
+  - _name: Move To Food
+    InspectorColor: {r: 0.5754717, g: 0.16015486, b: 0.16015486, a: 0.34901962}
     Cost: 0
     preconditions:
     - name: Not In Range Of Food
@@ -1018,8 +1017,8 @@ MonoBehaviour:
     - name: In Range Of Food
     strategy:
       rid: 7360486417862492237
-  - InspectorColor: {r: 0, g: 1, b: 1, a: 1}
-    <Name>k__BackingField: Move To Tree
+  - _name: Move To Tree
+    InspectorColor: {r: 0.04240483, g: 0.38679248, b: 0.034665354, a: 1}
     Cost: 0
     preconditions:
     - name: Not In Range Of Tree
@@ -1028,11 +1027,13 @@ MonoBehaviour:
     strategy:
       rid: 7360486417862492238
   _goals:
-  - <Name>k__BackingField: Be Near Tree
+  - InspectorColor: {r: 0.6132076, g: 0.29152155, b: 0.112807065, a: 0.5372549}
+    <Name>k__BackingField: Be Near Tree
     <Priority>k__BackingField: 0
     desiredEffects:
     - name: In Range Of Tree
-  - <Name>k__BackingField: Be Near Food
+  - InspectorColor: {r: 1, g: 1, b: 1, a: 0.20392157}
+    <Name>k__BackingField: Be Near Food
     <Priority>k__BackingField: 1
     desiredEffects:
     - name: In Range Of Food
