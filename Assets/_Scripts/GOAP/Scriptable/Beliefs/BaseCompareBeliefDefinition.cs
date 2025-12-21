@@ -1,8 +1,8 @@
 ﻿namespace GOAP.Scriptable.Beliefs
 {
-    public abstract class BaseCompareBeliefDefinition : BeliefDefinition
+    public abstract class BaseMathCompareBeliefDefinition : BeliefDefinition
     {
-        public enum CompareType
+        protected enum CompareType
         {
             Equal, NotEqual, GreaterThan, LessThan, GreaterThanOrEqual, LessThanOrEqual
         }

@@ -10,7 +10,7 @@ namespace GOAP.Scriptable
     public class GoalDefinition
     {
         [HideInInspector]
-        public Color InspectorColor = Color.clear;
+        public Color InspectorColor = new(.2392f,.2392f,.2392f,1);
 
         [FoldoutGroup("Goal Settings")] 
         [SerializeField] public string name = "New Goal";

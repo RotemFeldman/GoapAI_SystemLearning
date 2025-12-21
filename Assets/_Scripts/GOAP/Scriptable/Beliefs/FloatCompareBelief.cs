@@ -1,9 +1,11 @@
 ﻿using GOAP.Unity;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace GOAP.Scriptable.Beliefs
 {
-    public class CompareFloatBeliefDefinition : BaseCompareBeliefDefinition
+    [LabelText("Compare Float")]
+    public class FloatCompareBelief : BaseMathCompareBeliefDefinition
     {
         [Header("Compare")]
         [SerializeField] private CompareType _compareType = CompareType.Equal;

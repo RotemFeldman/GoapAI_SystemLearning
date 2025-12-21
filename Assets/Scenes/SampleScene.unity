@@ -678,78 +678,118 @@ MonoBehaviour:
         GOAP]], mscorlib
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 7
-      Data: 1|GOAP.Scriptable.Beliefs.TransformDistanceBeliefDefinition, GOAP
+      Data: 1|GOAP.Scriptable.Beliefs.BoolCompareBelief, GOAP
     - Name: InspectorColor
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.138661444
+      Data: 0.6603774
     - Name: 
       Entry: 4
-      Data: 0.7169812
+      Data: 0.445443243
     - Name: 
       Entry: 4
-      Data: 0.247593865
+      Data: 0.445443243
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: _name
       Entry: 1
-      Data: Is Near Food
-    - Name: DistanceCheckType
-      Entry: 3
-      Data: 0
-    - Name: TransformA
+      Data: New Belief
+    - Name: _aBool
       Entry: 7
-      Data: 2|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
-        GOAP
+      Data: 2|GOAP.Scriptable.BlackboardBind`1[[System.Boolean, mscorlib]], GOAP
     - Name: _bindType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: _constantValue
+      Entry: 5
+      Data: false
+    - Name: _blackboardKey
       Entry: 6
       Data: 
-    - Name: _blackboardKey
-      Entry: 1
-      Data: Self
     - Name: 
       Entry: 8
       Data: 
-    - Name: TransformB
+    - Name: _bBool
       Entry: 7
-      Data: 3|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
-        GOAP
+      Data: 3|GOAP.Scriptable.BlackboardBind`1[[System.Boolean, mscorlib]], GOAP
     - Name: _bindType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: _constantValue
+      Entry: 5
+      Data: false
+    - Name: _blackboardKey
       Entry: 6
       Data: 
-    - Name: _blackboardKey
-      Entry: 1
-      Data: Food
     - Name: 
       Entry: 8
       Data: 
-    - Name: Threshold
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 7
-      Data: 4|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
-    - Name: _bindType
+      Data: 4|GOAP.Scriptable.Beliefs.FloatCompareBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.46226418
+    - Name: 
+      Entry: 4
+      Data: 0.308553129
+    - Name: 
+      Entry: 4
+      Data: 0.185341775
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _name
+      Entry: 1
+      Data: New Belief
+    - Name: _compareType
       Entry: 3
       Data: 0
+    - Name: _aFloat
+      Entry: 7
+      Data: 5|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
+    - Name: _bindType
+      Entry: 3
+      Data: 1
     - Name: _constantValue
       Entry: 4
       Data: 0
     - Name: _blackboardKey
-      Entry: 1
-      Data: Detection Range
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _bFloat
+      Entry: 7
+      Data: 6|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
+    - Name: _bindType
+      Entry: 3
+      Data: 1
+    - Name: _constantValue
+      Entry: 4
+      Data: 0
+    - Name: _blackboardKey
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -761,75 +801,58 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 5|GOAP.Scriptable.Beliefs.TransformDistanceBeliefDefinition, GOAP
+      Data: 7|GOAP.Scriptable.Beliefs.IntCompareBelief, GOAP
     - Name: InspectorColor
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.138661444
+      Data: 0.109647557
     - Name: 
       Entry: 4
-      Data: 0.7169812
+      Data: 0.175237685
     - Name: 
       Entry: 4
-      Data: 0.247593865
+      Data: 0.3018868
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
     - Name: _name
       Entry: 1
-      Data: Is Near Tree
-    - Name: DistanceCheckType
+      Data: New Belief
+    - Name: _compareType
       Entry: 3
       Data: 0
-    - Name: TransformA
+    - Name: _aInt
       Entry: 7
-      Data: 6|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
-        GOAP
+      Data: 8|GOAP.Scriptable.BlackboardBind`1[[System.Int32, mscorlib]], GOAP
     - Name: _bindType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: _constantValue
+      Entry: 3
+      Data: 0
+    - Name: _blackboardKey
       Entry: 6
       Data: 
-    - Name: _blackboardKey
-      Entry: 1
-      Data: Self
     - Name: 
       Entry: 8
       Data: 
-    - Name: TransformB
+    - Name: _bInt
       Entry: 7
-      Data: 7|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
-        GOAP
+      Data: 9|GOAP.Scriptable.BlackboardBind`1[[System.Int32, mscorlib]], GOAP
     - Name: _bindType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: _constantValue
+      Entry: 3
+      Data: 0
+    - Name: _blackboardKey
       Entry: 6
       Data: 
-    - Name: _blackboardKey
-      Entry: 1
-      Data: Tree
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Threshold
-      Entry: 7
-      Data: 8|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
-    - Name: _bindType
-      Entry: 3
-      Data: 0
-    - Name: _constantValue
-      Entry: 4
-      Data: 0
-    - Name: _blackboardKey
-      Entry: 1
-      Data: Detection Range
     - Name: 
       Entry: 8
       Data: 
@@ -854,7 +877,7 @@ MonoBehaviour:
     - name: Is Near Food
       DesiredState: 1
     strategy:
-      rid: 7360486443086774343
+      rid: 7360486473598500938
   - _name: Move To Tree
     InspectorColor: {r: 0.04240483, g: 0.38679248, b: 0.034665354, a: 1}
     Cost: 0
@@ -863,7 +886,14 @@ MonoBehaviour:
     - name: Is Near Tree
       DesiredState: 1
     strategy:
-      rid: 7360486443086774344
+      rid: 7360486473598500937
+  - _name: New Action
+    InspectorColor: {r: 0.254717, g: 0.19824672, b: 0.19824672, a: 255}
+    Cost: 0
+    preconditions: []
+    effects: []
+    strategy:
+      rid: -2
   _goals:
   - InspectorColor: {r: 0.6132076, g: 0.29152155, b: 0.112807065, a: 0.5372549}
     name: Be Near Tree
@@ -877,31 +907,18 @@ MonoBehaviour:
     desiredEffects:
     - name: Is Near Food
       DesiredState: 1
+  - InspectorColor: {r: 0.2392, g: 0.2392, b: 0.2392, a: 1}
+    name: New Goal
+    priority: 0
+    desiredEffects: []
   references:
     version: 2
     RefIds:
-    - rid: 7360486443086774343
-      type: {class: ScriptableMoveStrategy, ns: GOAP.Scriptable.Actions, asm: GOAP}
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 7360486473598500937
+      type: {class: MoveToTargetAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
       data:
-        self:
-          _bindType: 0
-          _constantValue: {fileID: 0}
-          _blackboardKey: Self
-        target:
-          _bindType: 0
-          _constantValue: {fileID: 0}
-          _blackboardKey: Food
-        distanceThreshold:
-          _bindType: 0
-          _constantValue: 0
-          _blackboardKey: Detection Range
-    - rid: 7360486443086774344
-      type: {class: ScriptableMoveStrategy, ns: GOAP.Scriptable.Actions, asm: GOAP}
-      data:
-        self:
-          _bindType: 0
-          _constantValue: {fileID: 0}
-          _blackboardKey: Self
         target:
           _bindType: 0
           _constantValue: {fileID: 0}
@@ -910,6 +927,25 @@ MonoBehaviour:
           _bindType: 0
           _constantValue: 0
           _blackboardKey: Detection Range
+        moveSpeed:
+          _bindType: 1
+          _constantValue: 3
+          _blackboardKey: 
+    - rid: 7360486473598500938
+      type: {class: MoveToTargetAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
+      data:
+        target:
+          _bindType: 0
+          _constantValue: {fileID: 0}
+          _blackboardKey: Food
+        distanceThreshold:
+          _bindType: 0
+          _constantValue: 0
+          _blackboardKey: Detection Range
+        moveSpeed:
+          _bindType: 1
+          _constantValue: 6
+          _blackboardKey: 
 --- !u!4 &1720669739
 Transform:
   m_ObjectHideFlags: 0

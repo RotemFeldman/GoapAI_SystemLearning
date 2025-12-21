@@ -1,10 +1,12 @@
 ﻿using GOAP.Scriptable;
 using GOAP.Unity;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace GOAP.Scriptable.Beliefs
 {
-    public class TransformDistanceBeliefDefinition : BaseDistanceBeliefDefinition
+    [LabelText("Transform Distance")]
+    public class TransformDistanceBelief : BaseDistanceBeliefDefinition
     {
         [Header("Distance Check Type")]
         public DistanceCheckType DistanceCheckType = DistanceCheckType.InRange;

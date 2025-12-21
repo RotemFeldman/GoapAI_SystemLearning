@@ -10,7 +10,7 @@ namespace GOAP.Scriptable
     {
         
         [HideInInspector]
-        public Color InspectorColor = Color.clear;
+        public Color InspectorColor = new(.2392f,.2392f,.2392f,1);
         
         [HorizontalGroup("Top")]
         [SerializeField] private string _name = "New Belief";
