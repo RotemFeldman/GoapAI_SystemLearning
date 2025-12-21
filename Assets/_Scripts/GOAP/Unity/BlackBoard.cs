@@ -42,6 +42,31 @@ namespace GOAP.Unity
         
         public bool Get<T>(string key, out T value) => TryGetValue(key, out value);
         
+        public void Set<T>(string key, T value)
+        {
+            if (string.IsNullOrWhiteSpace(key)) return;
+
+            BlackboardValue bbValue = value switch
+            {
+                bool b => new BoolValue(b),
+                float f => new FloatValue(f),
+                int i => new IntValue(i),
+                Vector3 v => new Vector3Value(v),
+                Transform t => new TransformValue(t),
+                GameObject go => new GameObjectValue(go),
+                _ => null
+            };
+
+            if (bbValue != null)
+            {
+                SetValue(key, bbValue);
+            }
+            else
+            {
+                Debug.LogError($"Blackboard: Type {typeof(T)} is not supported.");
+            }
+        }
+        
         private void SetBool(string Key, bool Value) => SetValue(Key, new BoolValue(Value));
         private void SetFloat(string Key, float Value) => SetValue(Key, new FloatValue(Value));
         private void SetInt(string Key, int Value) => SetValue(Key, new IntValue(Value));
@@ -76,7 +101,16 @@ namespace GOAP.Unity
 
             if (bbValue is BlackboardValue<T> typedValue)
             {
-                value = typedValue.Value;
+                T rawValue = typedValue.Value;
+
+                // Handle Unity-specific null check for destroyed objects
+                if (rawValue is Object unityObject && unityObject == null)
+                {
+                    value = default;
+                    return false;
+                }
+
+                value = rawValue;
                 return true;
             }
             

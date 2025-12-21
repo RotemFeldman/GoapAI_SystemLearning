@@ -35,6 +35,8 @@ namespace GOAP.Scriptable.Beliefs
                 if (!_bindA.TryGetValue(blackBoard, out  aVal)) return false;
                 if (!_bindB.TryGetValue(blackBoard, out  bVal)) return false;
                 if (!_threshold.TryGetValue(blackBoard, out  thresholdVal)) return false;
+                
+                if (aVal == null || bVal == null) return false;
             }
             else
             {

@@ -249,8 +249,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.251999, y: 18.246498, z: -26.001143}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -570,7 +570,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 5
     - Name: 
       Entry: 7
       Data: 
@@ -644,13 +644,31 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: HasEnergy
+    - Name: $v
+      Entry: 7
+      Data: 6|GOAP.Scriptable.BoolValue, GOAP
+    - Name: _value
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
   _newKeyName: 
-  _newType: 2
+  _newType: 0
 --- !u!114 &1720669738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,13 +705,13 @@ MonoBehaviour:
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.6603774
+      Data: 0.4433962
     - Name: 
       Entry: 4
-      Data: 0.445443243
+      Data: 0.414763361
     - Name: 
       Entry: 4
-      Data: 0.445443243
+      Data: 0.05228728
     - Name: 
       Entry: 4
       Data: 1
@@ -702,19 +720,19 @@ MonoBehaviour:
       Data: 
     - Name: _name
       Entry: 1
-      Data: New Belief
+      Data: Has Energy
     - Name: _aBool
       Entry: 7
       Data: 2|GOAP.Scriptable.BlackboardBind`1[[System.Boolean, mscorlib]], GOAP
     - Name: _bindType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: _constantValue
       Entry: 5
       Data: false
     - Name: _blackboardKey
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: HasEnergy
     - Name: 
       Entry: 8
       Data: 
@@ -726,7 +744,7 @@ MonoBehaviour:
       Data: 1
     - Name: _constantValue
       Entry: 5
-      Data: false
+      Data: true
     - Name: _blackboardKey
       Entry: 6
       Data: 
@@ -738,19 +756,19 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 4|GOAP.Scriptable.Beliefs.FloatCompareBelief, GOAP
+      Data: 4|GOAP.Scriptable.Beliefs.TransformDistanceBelief, GOAP
     - Name: InspectorColor
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.46226418
+      Data: 0.3962264
     - Name: 
       Entry: 4
-      Data: 0.308553129
+      Data: 0.1439124
     - Name: 
       Entry: 4
-      Data: 0.185341775
+      Data: 0.1439124
     - Name: 
       Entry: 4
       Data: 1
@@ -759,37 +777,54 @@ MonoBehaviour:
       Data: 
     - Name: _name
       Entry: 1
-      Data: New Belief
-    - Name: _compareType
+      Data: Is Close To Food
+    - Name: DistanceCheckType
       Entry: 3
       Data: 0
-    - Name: _aFloat
+    - Name: TransformA
       Entry: 7
-      Data: 5|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
+      Data: 5|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        GOAP
     - Name: _bindType
       Entry: 3
-      Data: 1
-    - Name: _constantValue
-      Entry: 4
       Data: 0
-    - Name: _blackboardKey
+    - Name: _constantValue
       Entry: 6
       Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Self
     - Name: 
       Entry: 8
       Data: 
-    - Name: _bFloat
+    - Name: TransformB
       Entry: 7
-      Data: 6|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
+      Data: 6|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        GOAP
     - Name: _bindType
       Entry: 3
-      Data: 1
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Food
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Threshold
+      Entry: 7
+      Data: 7|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
+    - Name: _bindType
+      Entry: 3
+      Data: 0
     - Name: _constantValue
       Entry: 4
       Data: 0
     - Name: _blackboardKey
-      Entry: 6
-      Data: 
+      Entry: 1
+      Data: Detection Range
     - Name: 
       Entry: 8
       Data: 
@@ -801,19 +836,19 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 7|GOAP.Scriptable.Beliefs.IntCompareBelief, GOAP
+      Data: 8|GOAP.Scriptable.Beliefs.TransformDistanceBelief, GOAP
     - Name: InspectorColor
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0.109647557
+      Data: 0.186053753
     - Name: 
       Entry: 4
-      Data: 0.175237685
+      Data: 0.3490566
     - Name: 
       Entry: 4
-      Data: 0.3018868
+      Data: 0.19495067
     - Name: 
       Entry: 4
       Data: 1
@@ -822,37 +857,54 @@ MonoBehaviour:
       Data: 
     - Name: _name
       Entry: 1
-      Data: New Belief
-    - Name: _compareType
+      Data: Is Close To Tree
+    - Name: DistanceCheckType
       Entry: 3
       Data: 0
-    - Name: _aInt
+    - Name: TransformA
       Entry: 7
-      Data: 8|GOAP.Scriptable.BlackboardBind`1[[System.Int32, mscorlib]], GOAP
+      Data: 9|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        GOAP
     - Name: _bindType
       Entry: 3
-      Data: 1
-    - Name: _constantValue
-      Entry: 3
       Data: 0
-    - Name: _blackboardKey
+    - Name: _constantValue
       Entry: 6
       Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Tree
     - Name: 
       Entry: 8
       Data: 
-    - Name: _bInt
+    - Name: TransformB
       Entry: 7
-      Data: 9|GOAP.Scriptable.BlackboardBind`1[[System.Int32, mscorlib]], GOAP
+      Data: 10|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        GOAP
     - Name: _bindType
       Entry: 3
-      Data: 1
-    - Name: _constantValue
-      Entry: 3
       Data: 0
-    - Name: _blackboardKey
+    - Name: _constantValue
       Entry: 6
       Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Food
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Threshold
+      Entry: 7
+      Data: 11|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 4
+      Data: 0
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Detection Range
     - Name: 
       Entry: 8
       Data: 
@@ -872,50 +924,52 @@ MonoBehaviour:
   - _name: Move To Food
     InspectorColor: {r: 0.54027796, g: 0.6509434, b: 0.11974903, a: 0.40392157}
     Cost: 0
-    preconditions: []
+    preconditions:
+    - name: Has Energy
+      DesiredState: 1
     effects:
-    - name: Is Near Food
+    - name: Is Close To Food
       DesiredState: 1
     strategy:
       rid: 7360486473598500938
   - _name: Move To Tree
     InspectorColor: {r: 0.04240483, g: 0.38679248, b: 0.034665354, a: 1}
     Cost: 0
-    preconditions: []
+    preconditions:
+    - name: Has Energy
+      DesiredState: 1
+    - name: Is Close To Food
+      DesiredState: 0
     effects:
-    - name: Is Near Tree
+    - name: Is Close To Tree
       DesiredState: 1
     strategy:
       rid: 7360486473598500937
-  - _name: New Action
+  - _name: Rest
     InspectorColor: {r: 0.254717, g: 0.19824672, b: 0.19824672, a: 255}
     Cost: 0
     preconditions: []
-    effects: []
+    effects:
+    - name: Has Energy
+      DesiredState: 1
     strategy:
-      rid: -2
+      rid: 7360486473598500939
   _goals:
   - InspectorColor: {r: 0.6132076, g: 0.29152155, b: 0.112807065, a: 0.5372549}
     name: Be Near Tree
     priority: 0
     desiredEffects:
-    - name: Is Near Tree
+    - name: Is Close To Tree
       DesiredState: 1
   - InspectorColor: {r: 1, g: 1, b: 1, a: 0.20392157}
     name: Be Near Food
-    priority: 0
+    priority: 99
     desiredEffects:
-    - name: Is Near Food
+    - name: Is Close To Food
       DesiredState: 1
-  - InspectorColor: {r: 0.2392, g: 0.2392, b: 0.2392, a: 1}
-    name: New Goal
-    priority: 0
-    desiredEffects: []
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
     - rid: 7360486473598500937
       type: {class: MoveToTargetAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
       data:
@@ -945,6 +999,13 @@ MonoBehaviour:
         moveSpeed:
           _bindType: 1
           _constantValue: 6
+          _blackboardKey: 
+    - rid: 7360486473598500939
+      type: {class: WaitAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
+      data:
+        _duration:
+          _bindType: 1
+          _constantValue: 2
           _blackboardKey: 
 --- !u!4 &1720669739
 Transform:
@@ -1055,7 +1116,7 @@ Transform:
   m_GameObject: {fileID: 1838762980}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.55, y: 17.89, z: 0}
+  m_LocalPosition: {x: -9.37, y: 18.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

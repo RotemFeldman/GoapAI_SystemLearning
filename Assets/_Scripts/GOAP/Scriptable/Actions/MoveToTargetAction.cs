@@ -8,6 +8,9 @@ namespace GOAP.Scriptable.Actions
     [LabelText("Move To Target")]
     public class MoveToTargetAction : BaseScriptableActionStrategy
     {
+        public override bool Complete => InRange();
+        public override bool CanPerform => ValidateField();
+        
         //[SerializeField] private BlackboardBind<Transform> self;
         [SerializeField] private BlackboardBind<Transform> target;
         [SerializeField] private BlackboardBind<float> distanceThreshold;
@@ -17,9 +20,7 @@ namespace GOAP.Scriptable.Actions
         private Transform _target;
         private float distance;
         private float speed;
-
-        public override bool Complete => InRange();
-        public override bool CanPerform => ValidateField();
+        
         public override void Start()
         {
             if (_self == null)
@@ -37,6 +38,7 @@ namespace GOAP.Scriptable.Actions
 
         public override void Stop()
         {
+            blackBoard.Set("HasEnergy",false);
         }
 
         private bool InRange()
