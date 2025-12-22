@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BlackboardSystem.Unity;
 using GOAP.Runtime;
 using GOAP.Unity;
 using Sirenix.OdinInspector;
@@ -22,7 +23,6 @@ namespace GOAP.Scriptable
         {
             if (Application.isPlaying) return;
             
-            Service.SetInstance<IBlackboardKeyProvider>(_blackBoardComponent);
             Service.SetInstance<IScriptableAgentProvider>(this);
         }
 #endif

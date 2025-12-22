@@ -3,6 +3,9 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
 
+
+// Old -- UNUSED
+// TODO maybe delete blackboardValue
 namespace GOAP.Scriptable
 {
     public enum BlackboardValueType

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sisus.Init;
 using UnityEngine;
@@ -65,7 +66,17 @@ namespace GOAP.Scriptable
 
             if (Service.TryGet<IBlackboardKeyProvider>(out var provider))
             {
-                var validKeys = provider.GetKeys<T>();
+                IEnumerable<string> validKeys = null;
+                try
+                {
+                    validKeys = provider.GetKeys<T>();
+                }
+                catch
+                {
+                    // provider not ready
+                }
+                if (validKeys == null) return;
+                
                 bool keyExist = false;
                 foreach (var key in validKeys)
                 {
@@ -79,7 +90,6 @@ namespace GOAP.Scriptable
                 if (!keyExist)
                 {
                     Sirenix.Utilities.Editor.SirenixEditorGUI.ErrorMessageBox($"Key '{_blackboardKey}' not found in Blackboard!");
-
                 }
             }
         }

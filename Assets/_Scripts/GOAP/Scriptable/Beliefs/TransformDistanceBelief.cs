@@ -9,8 +9,8 @@ namespace GOAP.Scriptable.Beliefs
     [LabelText("Transform Distance")]
     public class TransformDistanceBelief : BaseDistanceBeliefDefinition
     {
-        [Header("Distance Check Type")]
-        public DistanceCheckType DistanceCheckType = DistanceCheckType.InRange;
+        [Header("Distance Check Type"),SerializeField] 
+        private new DistanceCheckType distanceCheckType = DistanceCheckType.InRange;
         
         [Header("Operands")]
         [SerializeField] private BlackboardBind<Transform> TransformA = new();
@@ -50,7 +50,7 @@ namespace GOAP.Scriptable.Beliefs
             var bPos = bVal.position;
             var dist = Vector3.Distance(aPos, bPos);
             
-            return DistanceCheckType == DistanceCheckType.InRange ? dist <= thresholdVal : dist >= thresholdVal;
+            return distanceCheckType == DistanceCheckType.InRange ? dist <= thresholdVal : dist >= thresholdVal;
         }
     }
 }

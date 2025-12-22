@@ -548,10 +548,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 709108505}
-    - {fileID: 1720669739}
-    - {fileID: 1838762982}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -559,14 +556,14 @@ MonoBehaviour:
     SerializationNodes:
     - Name: entries
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[GOAP.Unity.BlackBoardComponent+BlackboardEntryData,
-        GOAP]], mscorlib
+      Data: 0|System.Collections.Generic.List`1[[BlackboardSystem.BlackboardEntryData,
+        BlackboardSystem]], mscorlib
     - Name: 
       Entry: 12
       Data: 3
     - Name: 
       Entry: 7
-      Data: 1|GOAP.Unity.BlackBoardComponent+BlackboardEntryData, GOAP
+      Data: 1|BlackboardSystem.BlackboardEntryData, BlackboardSystem
     - Name: keyName
       Entry: 1
       Data: Tree
@@ -575,7 +572,7 @@ MonoBehaviour:
       Data: 5
     - Name: value
       Entry: 7
-      Data: GOAP.Unity.BlackBoardComponent+AnyValue, GOAP
+      Data: BlackboardSystem.AnyValue, BlackboardSystem
     - Name: type
       Entry: 3
       Data: 5
@@ -607,8 +604,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: transformValue
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: gameObjectValue
       Entry: 6
       Data: 
@@ -620,7 +617,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 2|GOAP.Unity.BlackBoardComponent+BlackboardEntryData, GOAP
+      Data: 2|BlackboardSystem.BlackboardEntryData, BlackboardSystem
     - Name: keyName
       Entry: 1
       Data: Self
@@ -629,7 +626,7 @@ MonoBehaviour:
       Data: 5
     - Name: value
       Entry: 7
-      Data: GOAP.Unity.BlackBoardComponent+AnyValue, GOAP
+      Data: BlackboardSystem.AnyValue, BlackboardSystem
     - Name: type
       Entry: 3
       Data: 5
@@ -661,8 +658,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: transformValue
-      Entry: 10
-      Data: 1
+      Entry: 6
+      Data: 
     - Name: gameObjectValue
       Entry: 6
       Data: 
@@ -674,7 +671,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 7
-      Data: 3|GOAP.Unity.BlackBoardComponent+BlackboardEntryData, GOAP
+      Data: 3|BlackboardSystem.BlackboardEntryData, BlackboardSystem
     - Name: keyName
       Entry: 1
       Data: Food
@@ -683,7 +680,7 @@ MonoBehaviour:
       Data: 5
     - Name: value
       Entry: 7
-      Data: GOAP.Unity.BlackBoardComponent+AnyValue, GOAP
+      Data: BlackboardSystem.AnyValue, BlackboardSystem
     - Name: type
       Entry: 3
       Data: 5
@@ -715,8 +712,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: transformValue
-      Entry: 10
-      Data: 2
+      Entry: 6
+      Data: 
     - Name: gameObjectValue
       Entry: 6
       Data: 
@@ -732,6 +729,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  source: 1
+  assetData: {fileID: 11400000, guid: 76dcdbd82c8b52b48b2badea41babb36, type: 2}
 --- !u!114 &1720669738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,7 +783,7 @@ MonoBehaviour:
     - Name: _name
       Entry: 1
       Data: Is Close To Food
-    - Name: DistanceCheckType
+    - Name: distanceCheckType
       Entry: 3
       Data: 0
     - Name: TransformA
@@ -864,7 +863,7 @@ MonoBehaviour:
     - Name: _name
       Entry: 1
       Data: Is Close To Tree
-    - Name: DistanceCheckType
+    - Name: distanceCheckType
       Entry: 3
       Data: 0
     - Name: TransformA
