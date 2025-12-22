@@ -729,7 +729,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  source: 1
+  source: 0
   assetData: {fileID: 11400000, guid: 76dcdbd82c8b52b48b2badea41babb36, type: 2}
 --- !u!114 &1720669738
 MonoBehaviour:
@@ -799,6 +799,12 @@ MonoBehaviour:
     - Name: _blackboardKey
       Entry: 1
       Data: Self
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -815,6 +821,12 @@ MonoBehaviour:
     - Name: _blackboardKey
       Entry: 1
       Data: Food
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -830,6 +842,12 @@ MonoBehaviour:
     - Name: _blackboardKey
       Entry: 1
       Data: Detection Range
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -879,6 +897,12 @@ MonoBehaviour:
     - Name: _blackboardKey
       Entry: 1
       Data: Tree
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -895,6 +919,12 @@ MonoBehaviour:
     - Name: _blackboardKey
       Entry: 1
       Data: Food
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -910,6 +940,12 @@ MonoBehaviour:
     - Name: _blackboardKey
       Entry: 1
       Data: Detection Range
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -976,18 +1012,26 @@ MonoBehaviour:
           _bindType: 0
           _constantValue: {fileID: 0}
           _blackboardKey: Self
+          _targetComponent: {fileID: 0}
+          _methodName: 
         target:
           _bindType: 0
           _constantValue: {fileID: 0}
           _blackboardKey: Tree
+          _targetComponent: {fileID: 0}
+          _methodName: 
         distanceThreshold:
           _bindType: 1
           _constantValue: 1
           _blackboardKey: Detection Range
+          _targetComponent: {fileID: 0}
+          _methodName: 
         moveSpeed:
           _bindType: 1
           _constantValue: 3
           _blackboardKey: 
+          _targetComponent: {fileID: 0}
+          _methodName: 
     - rid: 7360486473598500938
       type: {class: MoveToTargetAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
       data:
@@ -995,18 +1039,26 @@ MonoBehaviour:
           _bindType: 0
           _constantValue: {fileID: 0}
           _blackboardKey: Self
+          _targetComponent: {fileID: 0}
+          _methodName: 
         target:
           _bindType: 0
           _constantValue: {fileID: 0}
           _blackboardKey: Food
+          _targetComponent: {fileID: 0}
+          _methodName: 
         distanceThreshold:
           _bindType: 1
           _constantValue: 1
           _blackboardKey: Detection Range
+          _targetComponent: {fileID: 0}
+          _methodName: 
         moveSpeed:
           _bindType: 1
           _constantValue: 6
           _blackboardKey: 
+          _targetComponent: {fileID: 0}
+          _methodName: 
     - rid: 7360486473598500939
       type: {class: WaitAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
       data:
@@ -1014,6 +1066,8 @@ MonoBehaviour:
           _bindType: 1
           _constantValue: 2
           _blackboardKey: 
+          _targetComponent: {fileID: 0}
+          _methodName: 
 --- !u!4 &1720669739
 Transform:
   m_ObjectHideFlags: 0

@@ -37,6 +37,7 @@ namespace BlackboardSystem.Unity
         [ListDrawerSettings(
             ShowFoldout = false, ShowPaging = false, DraggableItems = true, HideAddButton = true)]
         [ShowIf(nameof(source),BlackboardSource.Local)]
+        [ValidateInput("ValidateUniqueKeys", "Duplicate key names found!")]
         private List<BlackboardEntryData> entries = new();
 
         private List<BlackboardEntryData> actualEntries
@@ -78,6 +79,22 @@ namespace BlackboardSystem.Unity
             {
                 yield return entry.keyName;
             }
+        }
+
+        private bool ValidateUniqueKeys(List<BlackboardEntryData> list, ref string errorMessage)
+        {
+            if (list == null) return true;
+            var keys = new HashSet<string>();
+            foreach (var entry in list)
+            {
+                if(string.IsNullOrEmpty(entry.keyName)) continue;
+                if (!keys.Add(entry.keyName))
+                {
+                    errorMessage = $"Duplicate key name {entry.keyName}";
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
