@@ -14,29 +14,18 @@ namespace GOAP.Scriptable
     [Service(typeof(IScriptableAgentProvider),FindFromScene = true)]
     public class ScriptableGoapAgent : MonoAgent, IScriptableAgentProvider
     {
+        [Title("Data Definitions")]
+        [SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawBeliefElementLabel))]
+        private List<BeliefDefinition> _beliefs = new();
+
+        [SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawActionElementLabel))]
+        private List<ActionDefinition> _actions = new();
+
+        [SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawGoalElementLabel))]
+        private List<GoalDefinition> _goals = new();
+
         private BlackBoardComponent _blackBoardComponent;
-
-#if UNITY_EDITOR
-        [Sirenix.OdinInspector.OnInspectorGUI]
-        private void UpdateEditorContext()
-        {
-            if (Application.isPlaying) return;
-            
-            Service.SetInstance<IScriptableAgentProvider>(this);
-        }
-#endif
         
-        [ListDrawerSettings(OnBeginListElementGUI = nameof(DrawBeliefElementLabel))]
-        [SerializeField] List<BeliefDefinition> _beliefs = new();
-        
-        [Space(30)]
-        [ListDrawerSettings(OnBeginListElementGUI = nameof(DrawActionElementLabel))]
-        [SerializeField] List<ActionDefinition> _actions = new();
-        
-        [Space(30),SerializeField]
-        [ListDrawerSettings(OnBeginListElementGUI = nameof(DrawGoalElementLabel))]
-        List<GoalDefinition> _goals = new();
-
         private void OnValidate()
         {
             if (_blackBoardComponent == null)
@@ -44,16 +33,16 @@ namespace GOAP.Scriptable
                 _blackBoardComponent = GetComponent<BlackBoardComponent>();
             }
         }
+        
 
-        public List<BeliefDefinition> GetBeliefs()
-        {
-            return _beliefs;
-        }
+        #region IScriptableAgentProvider Implementation
 
-        public List<ActionDefinition> GetActions()
-        {
-            return _actions;
-        }
+        public List<BeliefDefinition> GetBeliefs() => _beliefs;
+        public List<ActionDefinition> GetActions() => _actions;
+
+        #endregion
+
+        #region GOAP Setup Overrides
 
         protected override void SetupBeliefs(BeliefFactory factory)
         {
@@ -82,11 +71,18 @@ namespace GOAP.Scriptable
             }
         }
 
-        #region Lists Coloring
+        #endregion
+
+        #region Editor Support
         
 #if UNITY_EDITOR
-        
-        // lists Color Picker
+        [OnInspectorGUI]
+        private void UpdateEditorContext()
+        {
+            if (Application.isPlaying) return;
+            Service.SetInstance<IScriptableAgentProvider>(this);
+        }
+
         private void DrawBeliefElementLabel(int index)
         {
             var element = _beliefs[index];
@@ -140,7 +136,6 @@ namespace GOAP.Scriptable
 
             element.InspectorColor = EditorGUI.ColorField(colorRect, GUIContent.none, element.InspectorColor);
         }
-        
 #endif
         #endregion
     }

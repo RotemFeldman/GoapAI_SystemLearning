@@ -11,86 +11,91 @@ namespace BlackboardSystem.Unity
     [Service(typeof(IBlackboardKeyProvider))]
     public class BlackBoardComponent : SerializedMonoBehaviour, IBlackboardKeyProvider
     {
-#if UNITY_EDITOR
-        [OnInspectorGUI]
-        private void UpdateEditorContext()
-        {
-            if (Application.isPlaying) return;
-            Service.SetInstance<IBlackboardKeyProvider>(this);
-        }
-#endif
-        private enum BlackboardSource {Local, Asset}
-        [SerializeField,EnumToggleButtons,HideLabel,PropertyOrder(-5)]
-        private BlackboardSource source  = BlackboardSource.Local;
+        private enum BlackboardSource { Local, Asset }
         
-        [ShowIf(nameof(source),BlackboardSource.Asset)]
-        [SerializeField,Required("Please assign a Blackboard Data asset")]
-        BlackboardData assetData;
+        [TitleGroup("Blackboard Configuration"),PropertyOrder(-5)]
+        [SerializeField, EnumToggleButtons, HideLabel]
+        private BlackboardSource source = BlackboardSource.Local;
+
+        [SerializeField, Required("Please assign a Blackboard Data asset")]
+        [ShowIf(nameof(source), BlackboardSource.Asset)]
+        private BlackboardData assetData;
         
-        
-        [Title("Blackboard Values")]
-        [ShowInInspector,ReadOnly,HideInEditorMode]
-        [SerializeField] private Blackboard blackboard = new();
+        [TitleGroup("Runtime Blackboard")]
+        [ShowInInspector, ReadOnly, HideInEditorMode]
+        private Blackboard blackboard = new();
         public Blackboard Blackboard => blackboard;
-        
-        [OdinSerialize,HideInPlayMode,InlineProperty,HideReferenceObjectPicker,Searchable]
-        [ListDrawerSettings(
-            ShowFoldout = false, ShowPaging = false, DraggableItems = true, HideAddButton = true)]
-        [ShowIf(nameof(source),BlackboardSource.Local)]
-        [ValidateInput("ValidateUniqueKeys", "Duplicate key names found!")]
+
+        [TitleGroup("Data Entries")]
+        [OdinSerialize, HideInPlayMode, InlineProperty, HideReferenceObjectPicker, Searchable]
+        [ListDrawerSettings(ShowFoldout = false, ShowPaging = false, DraggableItems = true, HideAddButton = true)]
+        [ShowIf(nameof(source), BlackboardSource.Local)]
+        [ValidateInput(nameof(ValidateUniqueKeys), "Duplicate key names found!")]
         private List<BlackboardEntryData> entries = new();
 
-        private List<BlackboardEntryData> actualEntries
+        private List<BlackboardEntryData> ActualEntries => source switch
         {
-            get
-            {
-                if (source == BlackboardSource.Local) return entries;
-                return assetData != null ? assetData.Entries : null;
-            }
-        }
-        
-        [ShowIf(nameof(source),BlackboardSource.Local)]
-        [Title("Blackboard Values"),PropertyOrder(-1)]
-        [Button("Add Key")]
-        private void AddKey()
-        {
-            entries.Add(new BlackboardEntryData());
-        }
+            BlackboardSource.Local => entries,
+            BlackboardSource.Asset => assetData != null ? assetData.Entries : null,
+            _ => null
+        };
+
+        [TitleGroup("Data Entries"),PropertyOrder(-1)]
+        [Button(ButtonSizes.Medium)]
+        [ShowIf(nameof(source), BlackboardSource.Local)]
+        private void AddKey() => entries.Add(new BlackboardEntryData());
 
         private void Awake()
         {
             SetValuesOnBlackboard(blackboard);
         }
 
-        public void SetValuesOnBlackboard(Blackboard blackboard)
+        public void SetValuesOnBlackboard(Blackboard targetBlackboard)
         {
-            foreach (var entry in actualEntries)
+            var data = ActualEntries;
+            if (data == null) return;
+
+            foreach (var entry in data)
             {
-                entry.SetValueOnBlackboard(blackboard);
+                entry.SetValueOnBlackboard(targetBlackboard);
             }
         }
 
+        #region IBlackboardKeyProvider Implementation
+
         public IEnumerable<string> GetKeys<T>()
         {
-            if (actualEntries == null || actualEntries.Count == 0)
-                yield break;
-            
-            foreach (var entry in actualEntries)
+            var data = ActualEntries;
+            if (data == null) yield break;
+
+            foreach (var entry in data)
             {
-                if(entry.value.GetActiveType() == typeof(T))
+                if (entry.value.GetActiveType() == typeof(T))
                     yield return entry.keyName;
             }
         }
 
         public IEnumerable<string> GetKeys()
         {
-            if (actualEntries == null || actualEntries.Count == 0)
-                yield break;
-            
-            foreach (var entry in actualEntries)
+            var data = ActualEntries;
+            if (data == null) yield break;
+
+            foreach (var entry in data)
             {
                 yield return entry.keyName;
             }
+        }
+
+        #endregion
+
+        #region Editor Support & Validation
+
+#if UNITY_EDITOR
+        [OnInspectorGUI]
+        private void UpdateEditorContext()
+        {
+            if (Application.isPlaying) return;
+            Service.SetInstance<IBlackboardKeyProvider>(this);
         }
 
         private bool ValidateUniqueKeys(List<BlackboardEntryData> list, ref string errorMessage)
@@ -99,14 +104,16 @@ namespace BlackboardSystem.Unity
             var keys = new HashSet<string>();
             foreach (var entry in list)
             {
-                if(string.IsNullOrEmpty(entry.keyName)) continue;
+                if (string.IsNullOrEmpty(entry.keyName)) continue;
                 if (!keys.Add(entry.keyName))
                 {
-                    errorMessage = $"Duplicate key name {entry.keyName}";
+                    errorMessage = $"Duplicate key name: {entry.keyName}";
                     return false;
                 }
             }
             return true;
         }
+#endif
+        #endregion
     }
 }

@@ -9,30 +9,33 @@ namespace BlackboardSystem
     [Serializable]
     public class BlackboardEntryData : ISerializationCallbackReceiver
     {
-        [HorizontalGroup,HideLabel]
+        [HorizontalGroup("Entry"),HideLabel]
         public string keyName;
-        [HorizontalGroup(Width = 100),HideLabel,OnValueChanged("OnTypeValueChanged")]
+        
+        [HorizontalGroup("Entry",Width = 100),HideLabel]
+        [OnValueChanged("OnTypeValueChanged")]
         [OnInspectorGUI("BeginDrawEnum","EndDrawEnum")]
         public AnyValue.ValueType valueType;
-        [HorizontalGroup,HideLabel]
+        
+        [HorizontalGroup("Entry"),HideLabel]
         public AnyValue value;
-
+        
         private static Dictionary<AnyValue.ValueType, Action<Blackboard, BlackboardKey, AnyValue>>
             setValueDispatchTable = new()
             {
-                { AnyValue.ValueType.Int, (blackboard, key, anyValue) => blackboard.SetVlaue<int>(key, anyValue) },
-                { AnyValue.ValueType.Float, (blackboard, key, anyValue) => blackboard.SetVlaue<float>(key, anyValue) },
-                { AnyValue.ValueType.Bool, (blackboard, key, anyValue) => blackboard.SetVlaue<bool>(key, anyValue) },
-                { AnyValue.ValueType.String, (blackboard, key, anyValue) => blackboard.SetVlaue<string>(key, anyValue) },
-                { AnyValue.ValueType.Vector3, (blackboard, key, anyValue) => blackboard.SetVlaue<Vector3>(key, anyValue) },
-                { AnyValue.ValueType.Transform, (blackboard, key, anyValue) => blackboard.SetVlaue<Transform>(key, anyValue) },
-                { AnyValue.ValueType.GameObject, (blackboard, key, anyValue) => blackboard.SetVlaue<GameObject>(key, anyValue) },
+                { AnyValue.ValueType.Int, (blackboard, key, anyValue) => blackboard.SetValue<int>(key, anyValue) },
+                { AnyValue.ValueType.Float, (blackboard, key, anyValue) => blackboard.SetValue<float>(key, anyValue) },
+                { AnyValue.ValueType.Bool, (blackboard, key, anyValue) => blackboard.SetValue<bool>(key, anyValue) },
+                { AnyValue.ValueType.String, (blackboard, key, anyValue) => blackboard.SetValue<string>(key, anyValue) },
+                { AnyValue.ValueType.Vector3, (blackboard, key, anyValue) => blackboard.SetValue<Vector3>(key, anyValue) },
+                { AnyValue.ValueType.Transform, (blackboard, key, anyValue) => blackboard.SetValue<Transform>(key, anyValue) },
+                { AnyValue.ValueType.GameObject, (blackboard, key, anyValue) => blackboard.SetValue<GameObject>(key, anyValue) },
             };
 
         public void SetValueOnBlackboard(Blackboard blackboard)
         {
-            var key = blackboard.GetOrRegisterKey(keyName);
             if(string.IsNullOrWhiteSpace(keyName)) return;
+            var key = blackboard.GetOrRegisterKey(keyName);
             setValueDispatchTable[valueType](blackboard, key, value);
         }
         

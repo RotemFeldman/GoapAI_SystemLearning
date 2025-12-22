@@ -110,15 +110,9 @@ namespace BlackboardSystem
                 {
                     validKeys = provider.GetKeys();
                 }
-                catch
-                {
-                    // provider not ready
-                }
+                catch { /*provider not ready*/ }
 
-                if (validKeys == null)
-                {
-                    return;
-                }
+                if (validKeys == null) return;
                 
                 bool keyExist = false;
                 foreach (var key in validKeys)

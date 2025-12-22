@@ -78,7 +78,6 @@ namespace BlackboardSystem
             foreach (var entry in _entries)
             {
                 var eType = entry.Value.GetType();
-
                 if (eType.IsGenericType && eType.GetGenericTypeDefinition() == typeof(BlackboardEntry<>))
                 {
                     var valueProperty = eType.GetProperty("Value");
@@ -96,12 +95,11 @@ namespace BlackboardSystem
                 value = castedEntry.Value;
                 return true;
             }
-            
             value = default;
             return false;
         }
         
-        public void SetVlaue<T>(BlackboardKey key, T value)
+        public void SetValue<T>(BlackboardKey key, T value)
         {
             _entries[key] = new BlackboardEntry<T>(key, value);
         }
@@ -115,7 +113,6 @@ namespace BlackboardSystem
                 key = new BlackboardKey(name);
                 _keyRegistry[name] = key;
             }
-            
             return key;
         }
         
@@ -126,5 +123,6 @@ namespace BlackboardSystem
         {
             return _keyRegistry.Keys;
         }
+        
     }
 }

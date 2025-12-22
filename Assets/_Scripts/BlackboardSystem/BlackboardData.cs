@@ -9,8 +9,7 @@ namespace BlackboardSystem.Unity
     public class BlackboardData : SerializedScriptableObject
     {
         [OdinSerialize,InlineProperty,HideReferenceObjectPicker,Searchable]
-        [ListDrawerSettings(
-            ShowFoldout = false, ShowPaging = false, DraggableItems = true, HideAddButton = true)]
+        [ListDrawerSettings(ShowFoldout = false, ShowPaging = false, DraggableItems = true, HideAddButton = true)]
         [ValidateInput("ValidateUniqueKeys", "Duplicate key names found!")]
         private List<BlackboardEntryData> entries = new();
         public List<BlackboardEntryData> Entries => entries;

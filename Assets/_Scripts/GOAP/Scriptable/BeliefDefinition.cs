@@ -2,20 +2,19 @@
 using BlackboardSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GOAP.Scriptable
 {
     [Serializable]
     public abstract class BeliefDefinition
     {
-        
         [HideInInspector]
         public Color InspectorColor = new(.2392f,.2392f,.2392f,1);
         
-        [HorizontalGroup("Top")]
-        [SerializeField] private string _name = "New Belief";
-        public string Name => _name;
-        
+        [HorizontalGroup("Top"),SerializeField] 
+        private string name = "New Belief";
+        public string Name => name;
         
         public Func<bool> Condition => () => Evaluate(_blackBoard);
         
