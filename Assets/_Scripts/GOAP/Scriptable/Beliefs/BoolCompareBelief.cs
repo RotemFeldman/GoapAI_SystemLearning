@@ -1,6 +1,7 @@
 ﻿using GOAP.Unity;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using BlackboardSystem;
 
 namespace GOAP.Scriptable.Beliefs
 {
@@ -11,7 +12,7 @@ namespace GOAP.Scriptable.Beliefs
         [SerializeField] private BlackboardBind<bool> _bBool = new();
         
         
-        protected override bool Evaluate(BlackBoard blackBoard)
+        protected override bool Evaluate(Blackboard blackBoard)
         {
             if(!_aBool.TryGetValue(blackBoard,out var aVal)) return false; 
             if(!_bBool.TryGetValue(blackBoard,out var bVal)) return false; 

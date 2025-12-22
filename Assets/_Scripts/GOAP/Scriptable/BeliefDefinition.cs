@@ -1,5 +1,5 @@
 ﻿using System;
-using GOAP.Unity;
+using BlackboardSystem;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -19,10 +19,10 @@ namespace GOAP.Scriptable
         
         public Func<bool> Condition => () => Evaluate(_blackBoard);
         
-        private BlackBoard _blackBoard;
+        private Blackboard _blackBoard;
         
-        public void Initialize(BlackBoard blackBoard) => _blackBoard = blackBoard;
+        public void Initialize(Blackboard blackBoard) => _blackBoard = blackBoard;
 
-        protected abstract bool Evaluate(BlackBoard blackBoard);
+        protected abstract bool Evaluate(Blackboard blackBoard);
     }
 }

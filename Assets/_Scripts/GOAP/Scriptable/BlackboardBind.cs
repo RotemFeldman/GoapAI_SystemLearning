@@ -1,11 +1,9 @@
 using System;
 using System.Collections;
-using GOAP.Helpers;
-using GOAP.Unity;
 using Sirenix.OdinInspector;
 using Sisus.Init;
-using Sisus.Init.Internal;
 using UnityEngine;
+using BlackboardSystem;
 
 namespace GOAP.Scriptable
 {
@@ -31,7 +29,7 @@ namespace GOAP.Scriptable
         private int _bindTypeInt => (int)_bindType;
         public string typeName => typeof(T).Name;
 
-        public bool TryGetValue(BlackBoard blackBoard, out T _value)
+        public bool TryGetValue(Blackboard blackBoard, out T _value)
         {
             if (_bindType == BindType.Constant)
             {
@@ -46,7 +44,7 @@ namespace GOAP.Scriptable
                 return false;
             }
 
-            return blackBoard.Get(_blackboardKey, out _value);
+            return blackBoard.TryGetValue(blackBoard.GetOrRegisterKey(_blackboardKey), out _value);
         }
 
         private IEnumerable GetBlackboardKeys()

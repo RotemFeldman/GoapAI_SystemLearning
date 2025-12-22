@@ -1,5 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
+using Sisus.Init;
 
 namespace BlackboardSystem
 {
@@ -46,8 +50,28 @@ namespace BlackboardSystem
     [Serializable]
     public class Blackboard
     {
+        [OdinSerialize,NonSerialized]
         Dictionary<string, BlackboardKey> _keyRegistry = new();
-        Dictionary<BlackboardKey, object> _entries = new();
+        [OdinSerialize,NonSerialized]
+        private Dictionary<BlackboardKey, object> _entries = new();
+
+        public void InitializeFromInspector(Dictionary<string, object> inspectorEntries)
+        {
+            _entries.Clear();
+            _keyRegistry.Clear();
+            
+            if (inspectorEntries == null) return;
+
+            foreach (var item in inspectorEntries)
+            {
+                if (item.Value == null) continue;
+                
+                var key = GetOrRegisterKey(item.Key);
+                var eType = typeof(BlackboardEntry<>).MakeGenericType(item.Value.GetType());
+                var entry = Activator.CreateInstance(eType, key, item.Value);
+                _entries[key] = entry;
+            }
+        }
 
         public void Debug()
         {
@@ -97,5 +121,10 @@ namespace BlackboardSystem
         
         public bool ContainsKey(BlackboardKey key) => _entries.ContainsKey(key);
         public void RemoveKey(BlackboardKey key) => _entries.Remove(key);
+
+        public IEnumerable<string> GetKeys()
+        {
+            return _keyRegistry.Keys;
+        }
     }
 }

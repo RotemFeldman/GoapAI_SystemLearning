@@ -1,4 +1,5 @@
-﻿using GOAP.Scriptable;
+﻿using BlackboardSystem;
+using GOAP.Scriptable;
 using GOAP.Unity;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -20,7 +21,7 @@ namespace GOAP.Scriptable.Beliefs
         [Tooltip("If true and a key is missing, the belief evaluates to false.")]
         [SerializeField] private bool _failIfMissingKey = true;
         
-        protected override bool Evaluate(BlackBoard blackBoard)
+        protected override bool Evaluate(Blackboard blackBoard)
         {
             var _bindA = TransformA;
             var _bindB = TransformB;

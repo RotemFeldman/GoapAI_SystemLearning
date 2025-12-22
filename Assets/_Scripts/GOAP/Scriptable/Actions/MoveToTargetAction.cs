@@ -11,7 +11,7 @@ namespace GOAP.Scriptable.Actions
         public override bool Complete => InRange();
         public override bool CanPerform => ValidateField();
         
-        //[SerializeField] private BlackboardBind<Transform> self;
+        [SerializeField] private BlackboardBind<Transform> self;
         [SerializeField] private BlackboardBind<Transform> target;
         [SerializeField] private BlackboardBind<float> distanceThreshold;
         [SerializeField] private BlackboardBind<float> moveSpeed;
@@ -23,9 +23,7 @@ namespace GOAP.Scriptable.Actions
         
         public override void Start()
         {
-            if (_self == null)
-                _self = blackBoard.transform;
-            
+            self.TryGetValue(blackBoard, out _self);
             target.TryGetValue(blackBoard, out _target);
             distanceThreshold.TryGetValue(blackBoard, out distance);
             moveSpeed.TryGetValue(blackBoard, out speed);
@@ -38,7 +36,7 @@ namespace GOAP.Scriptable.Actions
 
         public override void Stop()
         {
-            blackBoard.Set("HasEnergy",false);
+            
         }
 
         private bool InRange()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using BlackboardSystem;
 using GOAP.Runtime;
 using GOAP.Scriptable.Actions;
 using GOAP.Unity;
@@ -40,7 +41,7 @@ namespace GOAP.Scriptable
         [VerticalGroup("Action Settings/Details")]
         [field: SerializeReference] public BaseScriptableActionStrategy strategy;
 
-        public AgentAction Build(ScriptableGoapAgent agent, BlackBoard blackBoard)
+        public AgentAction Build(ScriptableGoapAgent agent, Blackboard blackBoard)
         {
             var builder = new AgentAction.Builder(Name).WithCost(Cost);
 

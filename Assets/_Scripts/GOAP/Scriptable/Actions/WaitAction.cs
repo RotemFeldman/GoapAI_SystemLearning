@@ -31,7 +31,7 @@ namespace GOAP.Scriptable.Actions
 
         public override void Stop()
         {
-            blackBoard.Set<bool>("HasEnergy", true);
+            
         }
     }
 }

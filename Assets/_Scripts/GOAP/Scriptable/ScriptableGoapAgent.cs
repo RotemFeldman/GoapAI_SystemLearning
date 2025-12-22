@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
-using GOAP.Helpers;
 using GOAP.Runtime;
 using GOAP.Unity;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Sisus.Init;
 using UnityEditor;
+using Blackboard = BlackboardSystem;
 
 namespace GOAP.Scriptable
 {
     [HideMonoScript]
-    [RequireComponent(typeof(BlackBoard))]
+    [RequireComponent(typeof(BlackBoardComponent))]
     [Service(typeof(IScriptableAgentProvider),FindFromScene = true)]
     public class ScriptableGoapAgent : MonoAgent, IScriptableAgentProvider
     {
-        private BlackBoard _blackBoard;
+        private BlackBoardComponent _blackBoardComponent;
 
 #if UNITY_EDITOR
         [Sirenix.OdinInspector.OnInspectorGUI]
@@ -22,7 +22,7 @@ namespace GOAP.Scriptable
         {
             if (Application.isPlaying) return;
             
-            Service.SetInstance<IBlackboardKeyProvider>(_blackBoard);
+            Service.SetInstance<IBlackboardKeyProvider>(_blackBoardComponent);
             Service.SetInstance<IScriptableAgentProvider>(this);
         }
 #endif
@@ -40,9 +40,9 @@ namespace GOAP.Scriptable
 
         private void OnValidate()
         {
-            if (_blackBoard == null)
+            if (_blackBoardComponent == null)
             {
-                _blackBoard = GetComponent<BlackBoard>();
+                _blackBoardComponent = GetComponent<BlackBoardComponent>();
             }
         }
 
@@ -81,7 +81,7 @@ namespace GOAP.Scriptable
             base.SetupBeliefs(factory);
             foreach (var b in _beliefs)
             {
-                b.Initialize(_blackBoard);
+                b.Initialize(_blackBoardComponent.Blackboard);
                 factory.AddBelief(b.Name, b.Condition);
             }
         }
@@ -91,7 +91,7 @@ namespace GOAP.Scriptable
             base.SetupActions();
             foreach (var a in _actions)
             {
-                Actions.Add(a.Build(this, _blackBoard));
+                Actions.Add(a.Build(this, _blackBoardComponent.Blackboard));
             }
         }
 

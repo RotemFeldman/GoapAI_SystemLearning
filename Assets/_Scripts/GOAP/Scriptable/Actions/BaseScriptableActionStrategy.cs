@@ -1,4 +1,5 @@
-﻿using GOAP.Runtime;
+﻿using BlackboardSystem;
+using GOAP.Runtime;
 using GOAP.Scriptable;
 using GOAP.Unity;
 
@@ -9,9 +10,9 @@ namespace GOAP.Scriptable.Actions
         public abstract bool Complete { get; }
         public abstract bool CanPerform { get; }
         
-        protected BlackBoard blackBoard;
+        protected Blackboard blackBoard;
         
-        public BaseScriptableActionStrategy Init(BlackBoard blackBoard)
+        public BaseScriptableActionStrategy Init(Blackboard blackBoard)
         {
             this.blackBoard = blackBoard;
             return this;

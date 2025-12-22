@@ -16,6 +16,7 @@ namespace GOAP.Scriptable
     public abstract class BlackboardValue
     {
         public abstract Type ValueType { get; }
+        public abstract object GetValue();
     }
 
     [Serializable]
@@ -25,6 +26,8 @@ namespace GOAP.Scriptable
         [LabelText("@\"\" + niceName.ToLower() + \"\"")]
         private T _value;
         public T Value => _value;
+        
+        public override object GetValue() => _value;
         
         protected BlackboardValue(T value) => _value = value;
         public override Type ValueType => typeof(T);
