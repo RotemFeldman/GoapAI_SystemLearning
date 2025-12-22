@@ -10,7 +10,7 @@ namespace GOAP.Scriptable.Beliefs
     public class TransformDistanceBelief : BaseDistanceBeliefDefinition
     {
         [Header("Distance Check Type"),SerializeField] 
-        private new DistanceCheckType distanceCheckType = DistanceCheckType.InRange;
+        private DistanceCheckType distanceCheckType = DistanceCheckType.InRange;
         
         [Header("Operands")]
         [SerializeField] private BlackboardBind<Transform> TransformA = new();

@@ -101,6 +101,21 @@ namespace BlackboardSystem
         public static implicit operator Transform(AnyValue value) => value.ConvertValue<Transform>();
         public static implicit operator GameObject(AnyValue value) => value.ConvertValue<GameObject>();
 
+        public Type GetActiveType()
+        {
+            return type switch
+            {
+                ValueType.Bool => typeof(bool),
+                ValueType.Int => typeof(int),
+                ValueType.Float => typeof(float),
+                ValueType.String => typeof(string),
+                ValueType.Vector3 => typeof(Vector3),
+                ValueType.Transform => typeof(Transform),
+                ValueType.GameObject => typeof(GameObject),
+                _ => throw new NotSupportedException($"Not supported value type: {type}")
+            };
+        }
+
         private T ConvertValue<T>()
         {
             return type switch

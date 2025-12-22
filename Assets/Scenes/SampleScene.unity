@@ -548,7 +548,10 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 709108505}
+    - {fileID: 1720669739}
+    - {fileID: 1838762982}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -604,8 +607,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: transformValue
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: gameObjectValue
       Entry: 6
       Data: 
@@ -658,8 +661,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: transformValue
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 1
     - Name: gameObjectValue
       Entry: 6
       Data: 
@@ -712,8 +715,8 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: transformValue
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 2
     - Name: gameObjectValue
       Entry: 6
       Data: 
@@ -788,8 +791,8 @@ MonoBehaviour:
       Data: 0
     - Name: TransformA
       Entry: 7
-      Data: 2|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
-        GOAP
+      Data: 2|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
     - Name: _bindType
       Entry: 3
       Data: 0
@@ -810,8 +813,8 @@ MonoBehaviour:
       Data: 
     - Name: TransformB
       Entry: 7
-      Data: 3|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
-        GOAP
+      Data: 3|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
     - Name: _bindType
       Entry: 3
       Data: 0
@@ -832,7 +835,7 @@ MonoBehaviour:
       Data: 
     - Name: Threshold
       Entry: 7
-      Data: 4|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
+      Data: 4|BlackboardSystem.BlackboardBind`1[[System.Single, mscorlib]], BlackboardSystem
     - Name: _bindType
       Entry: 3
       Data: 1
@@ -840,8 +843,8 @@ MonoBehaviour:
       Entry: 4
       Data: 1
     - Name: _blackboardKey
-      Entry: 1
-      Data: Detection Range
+      Entry: 6
+      Data: 
     - Name: _targetComponent
       Entry: 6
       Data: 
@@ -886,8 +889,30 @@ MonoBehaviour:
       Data: 0
     - Name: TransformA
       Entry: 7
-      Data: 6|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
-        GOAP
+      Data: 6|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Self
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TransformB
+      Entry: 7
+      Data: 7|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
     - Name: _bindType
       Entry: 3
       Data: 0
@@ -906,31 +931,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: TransformB
-      Entry: 7
-      Data: 7|GOAP.Scriptable.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
-        GOAP
-    - Name: _bindType
-      Entry: 3
-      Data: 0
-    - Name: _constantValue
-      Entry: 6
-      Data: 
-    - Name: _blackboardKey
-      Entry: 1
-      Data: Food
-    - Name: _targetComponent
-      Entry: 6
-      Data: 
-    - Name: _methodName
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: Threshold
       Entry: 7
-      Data: 8|GOAP.Scriptable.BlackboardBind`1[[System.Single, mscorlib]], GOAP
+      Data: 8|BlackboardSystem.BlackboardBind`1[[System.Single, mscorlib]], BlackboardSystem
     - Name: _bindType
       Entry: 3
       Data: 1
@@ -938,8 +941,8 @@ MonoBehaviour:
       Entry: 4
       Data: 1
     - Name: _blackboardKey
-      Entry: 1
-      Data: Detection Range
+      Entry: 6
+      Data: 
     - Name: _targetComponent
       Entry: 6
       Data: 
@@ -984,9 +987,7 @@ MonoBehaviour:
     InspectorColor: {r: 0.254717, g: 0.19824672, b: 0.19824672, a: 255}
     Cost: 0
     preconditions: []
-    effects:
-    - name: Has Energy
-      DesiredState: 1
+    effects: []
     strategy:
       rid: 7360486473598500939
   _goals:
@@ -1023,12 +1024,12 @@ MonoBehaviour:
         distanceThreshold:
           _bindType: 1
           _constantValue: 1
-          _blackboardKey: Detection Range
+          _blackboardKey: 
           _targetComponent: {fileID: 0}
           _methodName: 
         moveSpeed:
           _bindType: 1
-          _constantValue: 3
+          _constantValue: 20
           _blackboardKey: 
           _targetComponent: {fileID: 0}
           _methodName: 
@@ -1050,12 +1051,12 @@ MonoBehaviour:
         distanceThreshold:
           _bindType: 1
           _constantValue: 1
-          _blackboardKey: Detection Range
+          _blackboardKey: 
           _targetComponent: {fileID: 0}
           _methodName: 
         moveSpeed:
           _bindType: 1
-          _constantValue: 6
+          _constantValue: 11
           _blackboardKey: 
           _targetComponent: {fileID: 0}
           _methodName: 
@@ -1064,7 +1065,7 @@ MonoBehaviour:
       data:
         _duration:
           _bindType: 1
-          _constantValue: 2
+          _constantValue: 0
           _blackboardKey: 
           _targetComponent: {fileID: 0}
           _methodName: 
@@ -1190,5 +1191,5 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1838762982}
-  - {fileID: 709108505}
   - {fileID: 1720669739}
+  - {fileID: 709108505}

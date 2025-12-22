@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using BlackboardSystem;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace GOAP.Scriptable.Actions

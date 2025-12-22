@@ -6,9 +6,8 @@ using System.Reflection;
 using Sirenix.OdinInspector;
 using Sisus.Init;
 using UnityEngine;
-using BlackboardSystem;
 
-namespace GOAP.Scriptable
+namespace BlackboardSystem
 {
     [Serializable,InlineProperty,HideReferenceObjectPicker]
     [LabelText("@$property.NiceName + \" (\" + Sirenix.Utilities.TypeExtensions.GetNiceName($property.ValueEntry.TypeOfValue.GetGenericArguments()[0]).ToLower() + \")\"")]
@@ -25,7 +24,7 @@ namespace GOAP.Scriptable
     
         [HorizontalGroup("Bind"),HideLabel]
         [ShowIf("@this._bindTypeInt == 0")]
-        [ValueDropdown("GetBlackboardKeys")]
+        [ValueDropdown("GetBlackboardKeysOfType")]
         [OnInspectorGUI("ValidateKey")]
         [SerializeField] private string _blackboardKey;
         
@@ -43,7 +42,7 @@ namespace GOAP.Scriptable
         private bool _cachedInitialized;
     
         private int _bindTypeInt => (int)_bindType;
-        public string typeName => typeof(T).Name;
+        private Type _type => typeof(T);
 
         public bool TryGetValue(Blackboard blackBoard, out T _value)
         {
@@ -85,11 +84,14 @@ namespace GOAP.Scriptable
                 BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
         }
 
-        private IEnumerable GetBlackboardKeys()
+        private IEnumerable GetBlackboardKeysOfType()
         {
             if (Service.TryGet<IBlackboardKeyProvider>(out var provider))
             {
-                return provider.GetKeys<T>();
+                var keys = provider.GetKeys<T>(); 
+                if (keys != null) return keys;
+
+                return new string[] { $"No keys of type {typeof(T).Name} found" };
             }
 
             return new string[] { "Assign a Blackboard to Scene" };
@@ -106,7 +108,7 @@ namespace GOAP.Scriptable
                 IEnumerable<string> validKeys = null;
                 try
                 {
-                    validKeys = provider.GetKeys<T>();
+                    validKeys = provider.GetKeys();
                 }
                 catch
                 {

@@ -77,6 +77,18 @@ namespace BlackboardSystem.Unity
             
             foreach (var entry in actualEntries)
             {
+                if(entry.value.GetActiveType() == typeof(T))
+                    yield return entry.keyName;
+            }
+        }
+
+        public IEnumerable<string> GetKeys()
+        {
+            if (actualEntries == null || actualEntries.Count == 0)
+                yield break;
+            
+            foreach (var entry in actualEntries)
+            {
                 yield return entry.keyName;
             }
         }

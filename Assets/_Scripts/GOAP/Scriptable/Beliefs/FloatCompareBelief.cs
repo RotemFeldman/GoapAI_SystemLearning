@@ -1,5 +1,4 @@
 ﻿using BlackboardSystem;
-using GOAP.Unity;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

@@ -6,7 +6,6 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using Sisus.Init;
 using UnityEditor;
-using Blackboard = BlackboardSystem;
 
 namespace GOAP.Scriptable
 {
@@ -46,26 +45,6 @@ namespace GOAP.Scriptable
             }
         }
 
-        /*private void Start()
-        {
-            var beliefsInfo = string.Join("\n", Beliefs.Select(b => 
-                $"  • {b.Key} (Current State: <color={(b.Value.Evaluate() ? "green" : "red")}>{b.Value.Evaluate()}</color>)"));
-
-            var actionsInfo = string.Join("\n", Actions.Select(a => 
-                $"  • <b>{a.Name}</b> (Cost: {a.Cost})\n" +
-                $"    - Needs: [{string.Join(", ", a.Preconditions.Select(p => p.Name))}]\n" +
-                $"    - Grants: [{string.Join(", ", a.Effects.Select(e => e.Name))}]"));
-
-            var goalsInfo = string.Join("\n", Goals.Select(g => 
-                $"  • <b>{g.Name}</b> (Priority: {g.Priority})\n" +
-                $"    - Desires: [{string.Join(", ", g.DesiredEffects.Select(e => e.Name))}]"));
-
-            Debug.Log($"<color=cyan>===== GOAP Agent Initialized =====</color>\n\n" +
-                      $"<b>Runtime Beliefs ({Beliefs.Count}):</b>\n{beliefsInfo}\n\n" +
-                      $"<b>Available Actions ({Actions.Count}):</b>\n{actionsInfo}\n\n" +
-                      $"<b>Active Goals ({Goals.Count}):</b>\n{goalsInfo}");
-        }*/
-
         public List<BeliefDefinition> GetBeliefs()
         {
             return _beliefs;
@@ -103,6 +82,8 @@ namespace GOAP.Scriptable
             }
         }
 
+        #region Lists Coloring
+        
 #if UNITY_EDITOR
         
         // lists Color Picker
@@ -161,5 +142,6 @@ namespace GOAP.Scriptable
         }
         
 #endif
+        #endregion
     }
 }
