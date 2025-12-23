@@ -23,7 +23,7 @@ namespace BlackboardSystem.Unity
         
         [TitleGroup("Runtime Blackboard")]
         [ShowInInspector, ReadOnly, HideInEditorMode]
-        private Blackboard blackboard = new();
+        private Blackboard blackboard=new();
         public Blackboard Blackboard => blackboard;
 
         [TitleGroup("Data Entries")]
@@ -47,6 +47,7 @@ namespace BlackboardSystem.Unity
 
         private void Awake()
         {
+            blackboard.Initialize(gameObject);
             SetValuesOnBlackboard(blackboard);
         }
 

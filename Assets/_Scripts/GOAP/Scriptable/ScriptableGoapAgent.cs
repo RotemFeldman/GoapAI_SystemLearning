@@ -18,10 +18,10 @@ namespace GOAP.Scriptable
         [SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawBeliefElementLabel))]
         private List<BeliefDefinition> _beliefs = new();
 
-        [SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawActionElementLabel))]
+        [Space,SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawActionElementLabel))]
         private List<ActionDefinition> _actions = new();
 
-        [SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawGoalElementLabel))]
+        [Space,SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawGoalElementLabel))]
         private List<GoalDefinition> _goals = new();
 
         private BlackBoardComponent _blackBoardComponent;

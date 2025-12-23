@@ -22,6 +22,7 @@ namespace GOAP.Scriptable.Actions
         private float distance;
         private float speed;
         
+        
         public override void Start()
         {
             self.TryGetValue(blackBoard, out _self);
@@ -42,6 +43,7 @@ namespace GOAP.Scriptable.Actions
 
         private bool InRange()
         {
+            if (!ValidateField()) return false;
             return Vector3.Distance(_self.position, _target.position) < distance;
         }
 

@@ -783,7 +783,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: _name
+    - Name: name
       Entry: 1
       Data: Is Close To Food
     - Name: distanceCheckType
@@ -881,7 +881,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: _name
+    - Name: name
       Entry: 1
       Data: Is Close To Tree
     - Name: distanceCheckType

@@ -4,6 +4,7 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using Sisus.Init;
+using UnityEngine;
 
 namespace BlackboardSystem
 {
@@ -54,7 +55,14 @@ namespace BlackboardSystem
         Dictionary<string, BlackboardKey> _keyRegistry = new();
         [OdinSerialize,NonSerialized]
         private Dictionary<BlackboardKey, object> _entries = new();
+        
+        public GameObject Owner { get; private set; }
 
+        public void Initialize(GameObject owner)
+        {
+            Owner = owner;
+        }
+        
         public void InitializeFromInspector(Dictionary<string, object> inspectorEntries)
         {
             _entries.Clear();

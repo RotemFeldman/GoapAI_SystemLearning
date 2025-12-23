@@ -1,0 +1,1015 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1735830217843529664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4152501612061785161}
+  - component: {fileID: 3699516149459897899}
+  - component: {fileID: 8488520235177033066}
+  - component: {fileID: 1098062543397817418}
+  - component: {fileID: 6913060957340421289}
+  - component: {fileID: 1904341860959153297}
+  m_Layer: 0
+  m_Name: VillagerAgent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4152501612061785161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735830217843529664}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1779495852995821047}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3699516149459897899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735830217843529664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67c9a526a721e5498347b340cf43d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8488520235177033066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735830217843529664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a72636f6cdf043259c2f33ecf8cf9006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 4152501612061785161}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: entries
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[BlackboardSystem.BlackboardEntryData,
+        BlackboardSystem]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 1|BlackboardSystem.BlackboardEntryData, BlackboardSystem
+    - Name: keyName
+      Entry: 1
+      Data: Self
+    - Name: valueType
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 7
+      Data: BlackboardSystem.AnyValue, BlackboardSystem
+    - Name: type
+      Entry: 3
+      Data: 5
+    - Name: boolValue
+      Entry: 5
+      Data: false
+    - Name: floatValue
+      Entry: 4
+      Data: 0
+    - Name: intValue
+      Entry: 3
+      Data: 0
+    - Name: stringValue
+      Entry: 6
+      Data: 
+    - Name: vector3Value
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: transformValue
+      Entry: 10
+      Data: 0
+    - Name: gameObjectValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 2|BlackboardSystem.BlackboardEntryData, BlackboardSystem
+    - Name: keyName
+      Entry: 1
+      Data: Wood Pile
+    - Name: valueType
+      Entry: 3
+      Data: 5
+    - Name: value
+      Entry: 7
+      Data: BlackboardSystem.AnyValue, BlackboardSystem
+    - Name: type
+      Entry: 3
+      Data: 5
+    - Name: boolValue
+      Entry: 5
+      Data: false
+    - Name: floatValue
+      Entry: 4
+      Data: 0
+    - Name: intValue
+      Entry: 3
+      Data: 0
+    - Name: stringValue
+      Entry: 6
+      Data: 
+    - Name: vector3Value
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: transformValue
+      Entry: 6
+      Data: 
+    - Name: gameObjectValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|BlackboardSystem.BlackboardEntryData, BlackboardSystem
+    - Name: keyName
+      Entry: 1
+      Data: Interaction Distance
+    - Name: valueType
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 7
+      Data: BlackboardSystem.AnyValue, BlackboardSystem
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: boolValue
+      Entry: 5
+      Data: false
+    - Name: floatValue
+      Entry: 4
+      Data: 0.5
+    - Name: intValue
+      Entry: 3
+      Data: 0
+    - Name: stringValue
+      Entry: 6
+      Data: 
+    - Name: vector3Value
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: transformValue
+      Entry: 6
+      Data: 
+    - Name: gameObjectValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 4|BlackboardSystem.BlackboardEntryData, BlackboardSystem
+    - Name: keyName
+      Entry: 1
+      Data: Movement Speed
+    - Name: valueType
+      Entry: 3
+      Data: 2
+    - Name: value
+      Entry: 7
+      Data: BlackboardSystem.AnyValue, BlackboardSystem
+    - Name: type
+      Entry: 3
+      Data: 2
+    - Name: boolValue
+      Entry: 5
+      Data: false
+    - Name: floatValue
+      Entry: 4
+      Data: 2
+    - Name: intValue
+      Entry: 3
+      Data: 0
+    - Name: stringValue
+      Entry: 6
+      Data: 
+    - Name: vector3Value
+      Entry: 7
+      Data: UnityEngine.Vector3, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: transformValue
+      Entry: 6
+      Data: 
+    - Name: gameObjectValue
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  source: 0
+  assetData: {fileID: 0}
+--- !u!114 &1098062543397817418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735830217843529664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e86afea1a14f81b8c3a81f9b08d05c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _beliefs
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[GOAP.Scriptable.BeliefDefinition,
+        GOAP]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 6
+    - Name: 
+      Entry: 7
+      Data: 1|GOAP.Scriptable.Beliefs.BooleanBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.309803933
+    - Name: 
+      Entry: 4
+      Data: 0.396078438
+    - Name: 
+      Entry: 4
+      Data: 0.223529413
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Gather Enough Wood (false)
+    - Name: _boolean
+      Entry: 7
+      Data: 2|BlackboardSystem.BlackboardBind`1[[System.Boolean, mscorlib]], BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 1
+    - Name: _constantValue
+      Entry: 5
+      Data: false
+    - Name: _blackboardKey
+      Entry: 6
+      Data: 
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|GOAP.Scriptable.Beliefs.BooleanBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.3301887
+    - Name: 
+      Entry: 4
+      Data: 0.251545161
+    - Name: 
+      Entry: 4
+      Data: 0.200916708
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: A Tree Is Available
+    - Name: _boolean
+      Entry: 7
+      Data: 4|BlackboardSystem.BlackboardBind`1[[System.Boolean, mscorlib]], BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 2
+    - Name: _constantValue
+      Entry: 5
+      Data: false
+    - Name: _blackboardKey
+      Entry: 6
+      Data: 
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 1
+      Data: AvailableTrees
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 5|GOAP.Scriptable.Beliefs.TransformNullCheckBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.339622617
+    - Name: 
+      Entry: 4
+      Data: 0.3006524
+    - Name: 
+      Entry: 4
+      Data: 0.229085073
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Has Target Tree
+    - Name: _transform
+      Entry: 7
+      Data: 6|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 2
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Target Tree
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 1
+      Data: GetTargetTree
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: reverse
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|GOAP.Scriptable.Beliefs.BooleanBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.298039228
+    - Name: 
+      Entry: 4
+      Data: 0.298039228
+    - Name: 
+      Entry: 4
+      Data: 0.298039228
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Has Wood Log
+    - Name: _boolean
+      Entry: 7
+      Data: 8|BlackboardSystem.BlackboardBind`1[[System.Boolean, mscorlib]], BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 2
+    - Name: _constantValue
+      Entry: 5
+      Data: false
+    - Name: _blackboardKey
+      Entry: 6
+      Data: 
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 1
+      Data: HasLog
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 9|GOAP.Scriptable.Beliefs.TransformDistanceBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.290187329
+    - Name: 
+      Entry: 4
+      Data: 0.139506951
+    - Name: 
+      Entry: 4
+      Data: 0.311320782
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Is Near Target Tree
+    - Name: distanceCheckType
+      Entry: 3
+      Data: 0
+    - Name: TransformA
+      Entry: 7
+      Data: 10|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Self
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TransformB
+      Entry: 7
+      Data: 11|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 2
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Target Tree
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 1
+      Data: GetTargetTree
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Threshold
+      Entry: 7
+      Data: 12|BlackboardSystem.BlackboardBind`1[[System.Single, mscorlib]], BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 4
+      Data: 2
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Interaction Distance
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _failIfMissingKey
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|GOAP.Scriptable.Beliefs.TransformDistanceBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.5283019
+    - Name: 
+      Entry: 4
+      Data: 0.381274462
+    - Name: 
+      Entry: 4
+      Data: 0.4961384
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Is Near Wood Pile
+    - Name: distanceCheckType
+      Entry: 3
+      Data: 0
+    - Name: TransformA
+      Entry: 7
+      Data: 14|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Self
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TransformB
+      Entry: 7
+      Data: 15|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Wood Pile
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Threshold
+      Entry: 7
+      Data: 16|BlackboardSystem.BlackboardBind`1[[System.Single, mscorlib]], BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 4
+      Data: 2
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Interaction Distance
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _failIfMissingKey
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _actions:
+  - _name: Request Tree To Chop
+    InspectorColor: {r: 0.6415094, g: 0.29957277, b: 0.29957277, a: 1}
+    Cost: 0
+    preconditions:
+    - name: A Tree Is Available
+      DesiredState: 1
+    effects:
+    - name: Has Target Tree
+      DesiredState: 1
+    strategy:
+      rid: 7360486497077952584
+  - _name: Move To Target Tree
+    InspectorColor: {r: 0.1475169, g: 0.18815546, b: 0.3679245, a: 1}
+    Cost: 0
+    preconditions:
+    - name: Has Target Tree
+      DesiredState: 1
+    effects:
+    - name: Is Near Target Tree
+      DesiredState: 1
+    strategy:
+      rid: 7360486497077952583
+  - _name: Chop Tree
+    InspectorColor: {r: 0.4245283, g: 0.23159502, b: 0.10212708, a: 1}
+    Cost: 0
+    preconditions:
+    - name: Is Near Target Tree
+      DesiredState: 1
+    effects:
+    - name: Has Wood Log
+      DesiredState: 1
+    strategy:
+      rid: 7360486497077952585
+  - _name: Move To Wood Pile
+    InspectorColor: {r: 0.12006053, g: 0.27269632, b: 0.3584906, a: 1}
+    Cost: 0
+    preconditions:
+    - name: Has Wood Log
+      DesiredState: 1
+    effects:
+    - name: Is Near Wood Pile
+      DesiredState: 1
+    strategy:
+      rid: 7360486497077952586
+  - _name: Add To Wood Pile
+    InspectorColor: {r: 0.2791314, g: 0.4339623, b: 0.20674619, a: 1}
+    Cost: 0
+    preconditions:
+    - name: Has Wood Log
+      DesiredState: 1
+    - name: Is Near Wood Pile
+      DesiredState: 1
+    effects:
+    - name: Gather Enough Wood (false)
+      DesiredState: 1
+    strategy:
+      rid: 7360486497077952588
+  _goals:
+  - InspectorColor: {r: 0.5377358, g: 0.51872975, b: 0.10399607, a: 1}
+    name: Gather Wood Log
+    priority: 0
+    desiredEffects:
+    - name: Gather Enough Wood (false)
+      DesiredState: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 7360486497077952583
+      type: {class: MoveToTargetAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
+      data:
+        self:
+          _bindType: 0
+          _constantValue: {fileID: 0}
+          _blackboardKey: Self
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        target:
+          _bindType: 2
+          _constantValue: {fileID: 0}
+          _blackboardKey: Target Tree
+          _targetComponent: {fileID: 6913060957340421289}
+          _methodName: GetTargetTree
+        distanceThreshold:
+          _bindType: 0
+          _constantValue: 0
+          _blackboardKey: Interaction Distance
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        moveSpeed:
+          _bindType: 0
+          _constantValue: 0
+          _blackboardKey: Movement Speed
+          _targetComponent: {fileID: 0}
+          _methodName: 
+    - rid: 7360486497077952584
+      type: {class: RequestTargetTreeAction, ns: Demo.Actions, asm: GoapDemo}
+      data:
+        villager: {fileID: 6913060957340421289}
+    - rid: 7360486497077952585
+      type: {class: ChopTreeAction, ns: Demo.Actions, asm: GoapDemo}
+      data:
+        villager: {fileID: 6913060957340421289}
+        timeBetweenChops: 1
+    - rid: 7360486497077952586
+      type: {class: MoveToTargetAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
+      data:
+        self:
+          _bindType: 0
+          _constantValue: {fileID: 0}
+          _blackboardKey: Self
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        target:
+          _bindType: 0
+          _constantValue: {fileID: 0}
+          _blackboardKey: Wood Pile
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        distanceThreshold:
+          _bindType: 0
+          _constantValue: 0
+          _blackboardKey: Interaction Distance
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        moveSpeed:
+          _bindType: 0
+          _constantValue: 0
+          _blackboardKey: Movement Speed
+          _targetComponent: {fileID: 0}
+          _methodName: 
+    - rid: 7360486497077952588
+      type: {class: DropWoodAtPileAction, ns: Demo.Actions, asm: GoapDemo}
+      data:
+        villager: {fileID: 6913060957340421289}
+--- !u!114 &6913060957340421289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735830217843529664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e228ce0c5b494a8a5a290e0cb6a73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetTree: {fileID: 0}
+--- !u!50 &1904341860959153297
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735830217843529664}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!1 &5826321285374078717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1779495852995821047}
+  - component: {fileID: 6866730471500151017}
+  - component: {fileID: 8248201760503534448}
+  m_Layer: 0
+  m_Name: Visual
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1779495852995821047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826321285374078717}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4152501612061785161}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &6866730471500151017
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826321285374078717}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 728028589, guid: f9e77a1b68794da4abd859310bf8407e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &8248201760503534448
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5826321285374078717}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 942de95079fdf0f429d1bd856b6e61fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
