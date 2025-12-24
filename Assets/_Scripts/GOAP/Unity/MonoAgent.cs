@@ -111,14 +111,14 @@ namespace GOAP.Unity
             
             _beliefFactory = new BeliefFactory(this, Beliefs);
             
-            SetupBeliefs(_beliefFactory);
+            SetupBeliefs();
             SetupActions();
             SetupGoals();
         }
         
-        protected virtual void SetupBeliefs(BeliefFactory factory)
+        protected virtual void SetupBeliefs()
         {
-            factory.AddBelief("Nothing", () => false);
+            _beliefFactory.AddBelief("Nothing", () => false);
         }
         protected virtual void SetupActions()
         {

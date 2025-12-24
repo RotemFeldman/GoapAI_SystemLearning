@@ -103,6 +103,7 @@ namespace BlackboardSystem
                 value = castedEntry.Value;
                 return true;
             }
+
             value = default;
             return false;
         }
@@ -132,5 +133,21 @@ namespace BlackboardSystem
             return _keyRegistry.Keys;
         }
         
+        public Dictionary<string, object> GetAllDebugEntries()
+        {
+            var results =  new Dictionary<string, object>();
+
+            foreach (var entry in _entries)
+            {
+                var eType = entry.Value.GetType();
+                var valueProperty = eType.GetProperty("Value");
+                if (valueProperty != null)
+                {
+                    results[entry.Key.ToString()] = valueProperty.GetValue(entry.Value);
+                }
+            }
+
+            return results;
+        }
     }
 }

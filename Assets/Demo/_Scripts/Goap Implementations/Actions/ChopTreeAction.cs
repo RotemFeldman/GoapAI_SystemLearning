@@ -11,20 +11,22 @@ namespace Demo.Actions
         public override bool Complete => _complete;
         public override bool CanPerform => true;
         
-        [SerializeField] Villager villager;
-        private TreeComponent tree;
+        Villager villager;
 
         [SerializeField] private float timeBetweenChops = 1f;
         private float timeSinceLastChop = 0f;
+        
+        [SerializeField] string HaveWoodKey = "Have Wood";
 
         private bool _complete = false;
         
         public override void Start()
         {
             _complete = false;
-            if(villager == null) return;
-            
-            tree = villager.TargetTree;
+            if (villager == null)
+            {
+                villager = blackBoard.Owner.GetComponent<Villager>();
+            }
         }
 
         public override void Update(float deltaTime)
@@ -33,10 +35,14 @@ namespace Demo.Actions
             if (timeSinceLastChop >= timeBetweenChops)
             {
                 timeSinceLastChop = 0f;
-                if (tree.TryChop())
+                if (villager.TargetTree.TryChop())
                 {
                     villager.PickupLog();
+                    var key = blackBoard.GetOrRegisterKey(HaveWoodKey);
+                    blackBoard.SetValue(key,true);
+                    
                     villager.TargetTree = null;
+                    
                     _complete = true;
                 }
             }

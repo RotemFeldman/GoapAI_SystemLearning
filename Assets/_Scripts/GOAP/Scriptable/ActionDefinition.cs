@@ -52,8 +52,10 @@ namespace GOAP.Scriptable
                 if (!agent.Beliefs.TryGetValue(effect.name, out var belief)) continue;
                 builder.WithEffect(belief,effect.DesiredState);
             }
+
+            var newStrat = strategy.Clone();
             
-            builder.WithStrategy(strategy.Init(blackBoard));
+            builder.WithStrategy(newStrat.Init(blackBoard));
             return builder.Build();
         }
     }

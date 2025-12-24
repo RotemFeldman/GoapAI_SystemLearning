@@ -3,6 +3,8 @@ using UnityEngine;
 using GOAP.Core;
 using GOAP.Unity;
 using Sirenix.OdinInspector.Editor;
+using System.Reflection;
+using GOAP.Scriptable;
 
 namespace GOAP.Editor
 {
@@ -33,9 +35,50 @@ namespace GOAP.Editor
             }
 
             DrawRuntimeStatus();
+            DrawBlackboardStatus();
             
             // Force repaint to update UI in real-time
             Repaint();
+        }
+
+        private void DrawBlackboardStatus()
+        {
+            if (Sirenix.Utilities.Editor.SirenixEditorGUI.BeginFadeGroup(this, "Blackboard Data", true))
+            {
+                // Access the private _blackboard field from ScriptableGoapAgent
+                var agentComponent = ((GoapDebug)target).GetComponent<ScriptableGoapAgent>();
+                if (agentComponent == null)
+                {
+                    EditorGUILayout.LabelField("Agent is not a ScriptableGoapAgent.");
+                    Sirenix.Utilities.Editor.SirenixEditorGUI.EndFadeGroup();
+                    return;
+                }
+
+                var field = typeof(ScriptableGoapAgent).GetField("_blackboard", BindingFlags.NonPublic | BindingFlags.Instance);
+                var blackboard = field?.GetValue(agentComponent) as BlackboardSystem.Blackboard;
+
+                if (blackboard != null)
+                {
+                    var entries = blackboard.GetAllDebugEntries();
+                    if (entries.Count == 0)
+                    {
+                        EditorGUILayout.LabelField("Blackboard is empty.");
+                    }
+
+                    foreach (var entry in entries)
+                    {
+                        EditorGUILayout.BeginHorizontal();
+                        EditorGUILayout.LabelField(entry.Key, GUILayout.Width(EditorGUIUtility.labelWidth));
+                        EditorGUILayout.SelectableLabel(entry.Value?.ToString() ?? "null", EditorStyles.textField, GUILayout.Height(EditorGUIUtility.singleLineHeight));
+                        EditorGUILayout.EndHorizontal();
+                    }
+                }
+                else
+                {
+                    EditorGUILayout.LabelField("No Blackboard instance found.");
+                }
+            }
+            Sirenix.Utilities.Editor.SirenixEditorGUI.EndFadeGroup();
         }
 
         private void DrawRuntimeStatus()

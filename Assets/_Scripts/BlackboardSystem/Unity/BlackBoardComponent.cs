@@ -1,4 +1,5 @@
 ﻿
+/*
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using Sisus.Init;
@@ -7,8 +8,8 @@ using UnityEngine;
 
 namespace BlackboardSystem.Unity
 {
+    
     [HideMonoScript]
-    [Service(typeof(IBlackboardKeyProvider))]
     public class BlackBoardComponent : SerializedMonoBehaviour, IBlackboardKeyProvider
     {
         private enum BlackboardSource { Local, Asset }
@@ -117,4 +118,4 @@ namespace BlackboardSystem.Unity
 #endif
         #endregion
     }
-}
+}*/

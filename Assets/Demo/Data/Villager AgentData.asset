@@ -1,0 +1,514 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ea87e4ec9b4c32b94fd2f2bdf7ec1f, type: 3}
+  m_Name: Villager AgentData
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _beliefs
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[GOAP.Scriptable.BeliefDefinition,
+        GOAP]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 1|GOAP.Scriptable.Beliefs.BooleanBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.6509434
+    - Name: 
+      Entry: 4
+      Data: 0.236427531
+    - Name: 
+      Entry: 4
+      Data: 0.236427531
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Have Enough Wood (false)
+    - Name: _boolean
+      Entry: 7
+      Data: 2|BlackboardSystem.BlackboardBind`1[[System.Boolean, mscorlib]], BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 1
+    - Name: _constantValue
+      Entry: 5
+      Data: false
+    - Name: _blackboardKey
+      Entry: 6
+      Data: 
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 3|GOAP.Scriptable.Beliefs.TransformDistanceBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.3820755
+    - Name: 
+      Entry: 4
+      Data: 0.509434
+    - Name: 
+      Entry: 4
+      Data: 0.411704183
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Is Near Target Tree
+    - Name: distanceCheckType
+      Entry: 3
+      Data: 0
+    - Name: TransformA
+      Entry: 7
+      Data: 4|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Self
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TransformB
+      Entry: 7
+      Data: 5|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Target Tree
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Threshold
+      Entry: 7
+      Data: 6|BlackboardSystem.BlackboardBind`1[[System.Single, mscorlib]], BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 4
+      Data: 0
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Interaction Distance
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _failIfMissingKey
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 7|GOAP.Scriptable.Beliefs.TransformDistanceBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.1961107
+    - Name: 
+      Entry: 4
+      Data: 0.3679245
+    - Name: 
+      Entry: 4
+      Data: 0.237762541
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Is Near Wood Pile
+    - Name: distanceCheckType
+      Entry: 3
+      Data: 0
+    - Name: TransformA
+      Entry: 7
+      Data: 8|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Self
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: TransformB
+      Entry: 7
+      Data: 9|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Wood Pile
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Threshold
+      Entry: 7
+      Data: 10|BlackboardSystem.BlackboardBind`1[[System.Single, mscorlib]], BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 4
+      Data: 0
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Interaction Distance
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _failIfMissingKey
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 11|GOAP.Scriptable.Beliefs.TransformNullCheckBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.2924528
+    - Name: 
+      Entry: 4
+      Data: 0.120016016
+    - Name: 
+      Entry: 4
+      Data: 0.120016016
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Have Target Tree
+    - Name: _transform
+      Entry: 7
+      Data: 12|BlackboardSystem.BlackboardBind`1[[UnityEngine.Transform, UnityEngine.CoreModule]],
+        BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 6
+      Data: 
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Target Tree
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: reverse
+      Entry: 5
+      Data: true
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 13|GOAP.Scriptable.Beliefs.BooleanBelief, GOAP
+    - Name: InspectorColor
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0.3207547
+    - Name: 
+      Entry: 4
+      Data: 0.217168331
+    - Name: 
+      Entry: 4
+      Data: 0.149786383
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: name
+      Entry: 1
+      Data: Have Wood
+    - Name: _boolean
+      Entry: 7
+      Data: 14|BlackboardSystem.BlackboardBind`1[[System.Boolean, mscorlib]], BlackboardSystem
+    - Name: _bindType
+      Entry: 3
+      Data: 0
+    - Name: _constantValue
+      Entry: 5
+      Data: false
+    - Name: _blackboardKey
+      Entry: 1
+      Data: Have Wood
+    - Name: _targetComponent
+      Entry: 6
+      Data: 
+    - Name: _methodName
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  blackBoardData: {fileID: 11400000, guid: cdb7c282ed06f404fb4822088042ca8c, type: 2}
+  _actions:
+  - _name: Request Tree
+    InspectorColor: {r: 0.027055884, g: 0.3018868, b: 0.29413182, a: 1}
+    Cost: 0
+    preconditions: []
+    effects:
+    - name: Have Target Tree
+      DesiredState: 1
+    strategy:
+      rid: 7360486533550833737
+  - _name: Move To Tree
+    InspectorColor: {r: 0.6698113, g: 0.36966002, b: 0.36966002, a: 1}
+    Cost: 0
+    preconditions:
+    - name: Have Target Tree
+      DesiredState: 1
+    effects:
+    - name: Is Near Target Tree
+      DesiredState: 1
+    strategy:
+      rid: 7360486533550833738
+  - _name: Move To Wood Pile
+    InspectorColor: {r: 0.6698113, g: 0.36966002, b: 0.36966002, a: 1}
+    Cost: 0
+    preconditions: []
+    effects:
+    - name: Is Near Wood Pile
+      DesiredState: 1
+    strategy:
+      rid: 7360486533550833740
+  - _name: Chop Tree
+    InspectorColor: {r: 0.2830189, g: 0.22127846, b: 0.14551443, a: 1}
+    Cost: 0
+    preconditions:
+    - name: Is Near Target Tree
+      DesiredState: 1
+    effects:
+    - name: Have Wood
+      DesiredState: 1
+    strategy:
+      rid: 7360486533550833739
+  - _name: Drop Wood @ Pile
+    InspectorColor: {r: 0.27674186, g: 0.31132078, b: 0.13656996, a: 1}
+    Cost: 0
+    preconditions:
+    - name: Have Wood
+      DesiredState: 1
+    - name: Is Near Wood Pile
+      DesiredState: 1
+    effects:
+    - name: Have Enough Wood (false)
+      DesiredState: 1
+    strategy:
+      rid: 7360486533550833741
+  _goals:
+  - InspectorColor: {r: 0.24408726, g: 0.41509432, b: 0.2212531, a: 1}
+    name: Gather Wood
+    priority: 0
+    desiredEffects:
+    - name: Have Enough Wood (false)
+      DesiredState: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 7360486533550833737
+      type: {class: RequestTargetTreeAction, ns: Demo.Actions, asm: GoapDemo}
+      data:
+        TargetTreeKeyName: Target Tree
+    - rid: 7360486533550833738
+      type: {class: MoveToTargetAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
+      data:
+        self:
+          _bindType: 0
+          _constantValue: {fileID: 0}
+          _blackboardKey: Self
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        target:
+          _bindType: 0
+          _constantValue: {fileID: 0}
+          _blackboardKey: Target Tree
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        distanceThreshold:
+          _bindType: 0
+          _constantValue: 0
+          _blackboardKey: Interaction Distance
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        moveSpeed:
+          _bindType: 0
+          _constantValue: 0
+          _blackboardKey: Movement Speed
+          _targetComponent: {fileID: 0}
+          _methodName: 
+    - rid: 7360486533550833739
+      type: {class: ChopTreeAction, ns: Demo.Actions, asm: GoapDemo}
+      data:
+        villager: {fileID: 0}
+        timeBetweenChops: 2
+        HaveWoodKey: Have Wood
+    - rid: 7360486533550833740
+      type: {class: MoveToTargetAction, ns: GOAP.Scriptable.Actions, asm: GOAP}
+      data:
+        self:
+          _bindType: 0
+          _constantValue: {fileID: 0}
+          _blackboardKey: Self
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        target:
+          _bindType: 0
+          _constantValue: {fileID: 0}
+          _blackboardKey: Wood Pile
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        distanceThreshold:
+          _bindType: 0
+          _constantValue: 0
+          _blackboardKey: Interaction Distance
+          _targetComponent: {fileID: 0}
+          _methodName: 
+        moveSpeed:
+          _bindType: 0
+          _constantValue: 0
+          _blackboardKey: Movement Speed
+          _targetComponent: {fileID: 0}
+          _methodName: 
+    - rid: 7360486533550833741
+      type: {class: DropWoodAtPileAction, ns: Demo.Actions, asm: GoapDemo}
+      data:
+        villager: {fileID: 0}
+        HaveWoodKey: Have Wood

@@ -2,6 +2,7 @@
 using GOAP.Runtime;
 using GOAP.Scriptable;
 using GOAP.Unity;
+using UnityEngine;
 
 namespace GOAP.Scriptable.Actions
 {
@@ -17,6 +18,12 @@ namespace GOAP.Scriptable.Actions
             this.blackBoard = blackBoard;
             return this;
         }
+
+        public BaseScriptableActionStrategy Clone()
+        {
+            string json = JsonUtility.ToJson(this);
+            return (BaseScriptableActionStrategy)JsonUtility.FromJson(json, GetType());
+        } 
 
         public abstract void Start();
         public abstract void Update(float deltaTime);

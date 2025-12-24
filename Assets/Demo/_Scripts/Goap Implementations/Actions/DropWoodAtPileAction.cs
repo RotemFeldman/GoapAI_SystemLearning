@@ -11,15 +11,23 @@ namespace Demo.Actions
         public override bool Complete => true;
         public override bool CanPerform => true;
         
-        [SerializeField] Villager villager;
+        Villager villager;
+        [SerializeField] string HaveWoodKey = "Have Wood";
+        
         
         public override void Start()
         {
-            if (villager == null) return;
+            if (villager == null)
+            {
+                villager = blackBoard.Owner.GetComponent<Villager>();
+            }
 
             if (villager.HasLog())
             {
                 villager.DropLog();
+                var key = blackBoard.GetOrRegisterKey(HaveWoodKey);
+                blackBoard.SetValue(key,false);
+                
                 LogPile.Instance.AddLog();
             }
         }

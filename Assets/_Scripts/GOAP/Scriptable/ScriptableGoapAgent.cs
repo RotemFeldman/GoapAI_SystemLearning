@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BlackboardSystem;
 using BlackboardSystem.Unity;
 using GOAP.Runtime;
 using GOAP.Unity;
@@ -10,62 +11,77 @@ using UnityEditor;
 namespace GOAP.Scriptable
 {
     [HideMonoScript]
-    [RequireComponent(typeof(BlackBoardComponent))]
-    [Service(typeof(IScriptableAgentProvider),FindFromScene = true)]
     public class ScriptableGoapAgent : MonoAgent, IScriptableAgentProvider
     {
-        [Title("Data Definitions")]
-        [SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawBeliefElementLabel))]
-        private List<BeliefDefinition> _beliefs = new();
+        [SerializeField, Required("Please assign a Goap Agent Data asset")]
+        [InlineEditor(InlineEditorModes.FullEditor)]
+        private GoapAgentData agentData;
 
-        [Space,SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawActionElementLabel))]
-        private List<ActionDefinition> _actions = new();
+        private Blackboard _blackboard = new Blackboard();
+        public Blackboard Blackboard => _blackboard;
+        private List<BeliefDefinition> localBeliefs = new List<BeliefDefinition>();
+        private List<ActionDefinition> localActions = new List<ActionDefinition>();
 
-        [Space,SerializeField, ListDrawerSettings(OnBeginListElementGUI = nameof(DrawGoalElementLabel))]
-        private List<GoalDefinition> _goals = new();
-
-        private BlackBoardComponent _blackBoardComponent;
-        
-        private void OnValidate()
+        protected override void Awake()
         {
-            if (_blackBoardComponent == null)
+            _blackboard.Initialize(gameObject);
+            if (agentData != null && agentData.BlackBoardData != null)
             {
-                _blackBoardComponent = GetComponent<BlackBoardComponent>();
+                agentData.BlackBoardData.SetValuesOnBlackboard(_blackboard);
             }
+
+            base.Awake();
         }
-        
 
         #region IScriptableAgentProvider Implementation
 
-        public List<BeliefDefinition> GetBeliefs() => _beliefs;
-        public List<ActionDefinition> GetActions() => _actions;
+        public List<BeliefDefinition> GetBeliefs() => agentData != null ? agentData.GetBeliefs() : new List<BeliefDefinition>();
+        public List<ActionDefinition> GetActions() => agentData != null ? agentData.GetActions() : new List<ActionDefinition>();
 
         #endregion
 
         #region GOAP Setup Overrides
 
-        protected override void SetupBeliefs(BeliefFactory factory)
+        protected override void SetupBeliefs()
         {
-            base.SetupBeliefs(factory);
-            foreach (var b in _beliefs)
+            base.SetupBeliefs();
+            if (agentData == null) return;
+
+            foreach (var belief in agentData.GetBeliefs())
             {
-                b.Initialize(_blackBoardComponent.Blackboard);
-                factory.AddBelief(b.Name, b.Condition);
+                localBeliefs.Add(belief.Clone());
+            }
+
+            foreach (var belief in localBeliefs)
+            {
+                belief.Initialize(_blackboard);
+                var b = belief.Build();
+                
+                Beliefs[b.Name] = b;
             }
         }
 
         protected override void SetupActions()
         {
             base.SetupActions();
-            foreach (var a in _actions)
+            if (agentData == null) return;
+
+            /*foreach (var action in agentData.GetActions())
             {
-                Actions.Add(a.Build(this, _blackBoardComponent.Blackboard));
+                localActions.Add(action.);
+            }*/
+            
+            foreach (var a in agentData.GetActions())
+            {
+                Actions.Add(a.Build(this, _blackboard));
             }
         }
 
         protected override void SetupGoals()
         {
-            foreach (var g in _goals)
+            if (agentData == null) return;
+
+            foreach (var g in agentData.Goals)
             {
                 Goals.Add(g.Build(this));
             }
@@ -74,67 +90,19 @@ namespace GOAP.Scriptable
         #endregion
 
         #region Editor Support
-        
+
 #if UNITY_EDITOR
         [OnInspectorGUI]
         private void UpdateEditorContext()
         {
             if (Application.isPlaying) return;
-            Service.SetInstance<IScriptableAgentProvider>(this);
-        }
 
-        private void DrawBeliefElementLabel(int index)
-        {
-            var element = _beliefs[index];
-            
-            Rect rect = GUILayoutUtility.GetRect(0,22,GUILayout.ExpandWidth(true));
-            
-            float colorFieldWidth = 60f;
-            Rect labelRect = new Rect(rect.x, rect.y, rect.width - colorFieldWidth - 5f, rect.height);
-            Rect colorRect = new Rect(rect.x + rect.width - colorFieldWidth, rect.y, colorFieldWidth, rect.height);
-
-            Color bg = element.InspectorColor;
-
-            EditorGUI.DrawRect(labelRect, bg);
-            GUI.Label(labelRect, element.Name, EditorStyles.boldLabel);
-
-            element.InspectorColor = EditorGUI.ColorField(colorRect, GUIContent.none, element.InspectorColor);
-        }
-        
-        private void DrawActionElementLabel(int index)
-        {
-            var element = _actions[index];
-            
-            Rect rect = GUILayoutUtility.GetRect(0,22,GUILayout.ExpandWidth(true));
-            
-            float colorFieldWidth = 60f;
-            Rect labelRect = new Rect(rect.x, rect.y, rect.width - colorFieldWidth - 5f, rect.height);
-            Rect colorRect = new Rect(rect.x + rect.width - colorFieldWidth, rect.y, colorFieldWidth, rect.height);
-
-            Color bg = element.InspectorColor;
-
-            EditorGUI.DrawRect(labelRect, bg);
-            GUI.Label(labelRect, element.Name, EditorStyles.boldLabel);
-
-            element.InspectorColor = EditorGUI.ColorField(colorRect, GUIContent.none, element.InspectorColor);
-        }
-        
-        private void DrawGoalElementLabel(int index)
-        {
-            var element = _goals[index];
-            
-            Rect rect = GUILayoutUtility.GetRect(0,22,GUILayout.ExpandWidth(true));
-            
-            float colorFieldWidth = 60f;
-            Rect labelRect = new Rect(rect.x, rect.y, rect.width - colorFieldWidth - 5f, rect.height);
-            Rect colorRect = new Rect(rect.x + rect.width - colorFieldWidth, rect.y, colorFieldWidth, rect.height);
-
-            Color bg = element.InspectorColor;
-
-            EditorGUI.DrawRect(labelRect, bg);
-            GUI.Label(labelRect, element.Name, EditorStyles.boldLabel);
-
-            element.InspectorColor = EditorGUI.ColorField(colorRect, GUIContent.none, element.InspectorColor);
+            if (agentData != null)
+            {
+                Service.SetInstance<IScriptableAgentProvider>(agentData);
+                if (agentData.BlackBoardData != null)
+                    Service.SetInstance<IBlackboardKeyProvider>(agentData.BlackBoardData);
+            }
         }
 #endif
         #endregion

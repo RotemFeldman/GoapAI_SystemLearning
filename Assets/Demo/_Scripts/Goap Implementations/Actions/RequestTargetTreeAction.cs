@@ -12,16 +12,24 @@ namespace Demo.Actions
     {
         public override bool Complete => true;
         public override bool CanPerform => true;
-
-        [SerializeField] private Villager villager;
+        
+        [SerializeField] private string TargetTreeKeyName = "Target Tree";
+        private Villager villager;
         
         public override void Start()
         {
+            if (villager == null)
+            {
+                villager = blackBoard.Owner.GetComponent<Villager>();
+            }
+            
             if (villager.HasLog()) return;
             
             if (TreeManager.Instance.TryGetTree(out var tree))
             {
                 villager.TargetTree = tree;
+                var key = blackBoard.GetOrRegisterKey(TargetTreeKeyName);
+                blackBoard.SetValue<Transform>(key, tree.transform);
             }
         }
 
