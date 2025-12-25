@@ -11,7 +11,7 @@ using UnityEditor;
 namespace GOAP.Scriptable
 {
     [HideMonoScript]
-    public class ScriptableGoapAgent : MonoAgent, IScriptableAgentProvider
+    public class ScriptableGoapAgent : MonoAgent
     {
         [SerializeField, Required("Please assign a Goap Agent Data asset")]
         [InlineEditor(InlineEditorModes.FullEditor)]
@@ -20,7 +20,6 @@ namespace GOAP.Scriptable
         private Blackboard _blackboard = new Blackboard();
         public Blackboard Blackboard => _blackboard;
         private List<BeliefDefinition> localBeliefs = new List<BeliefDefinition>();
-        private List<ActionDefinition> localActions = new List<ActionDefinition>();
 
         protected override void Awake()
         {
@@ -32,13 +31,6 @@ namespace GOAP.Scriptable
 
             base.Awake();
         }
-
-        #region IScriptableAgentProvider Implementation
-
-        public List<BeliefDefinition> GetBeliefs() => agentData != null ? agentData.GetBeliefs() : new List<BeliefDefinition>();
-        public List<ActionDefinition> GetActions() => agentData != null ? agentData.GetActions() : new List<ActionDefinition>();
-
-        #endregion
 
         #region GOAP Setup Overrides
 
@@ -96,12 +88,11 @@ namespace GOAP.Scriptable
         private void UpdateEditorContext()
         {
             if (Application.isPlaying) return;
-
-            if (agentData != null)
+            
+            if (agentData == null)
             {
-                Service.SetInstance<IScriptableAgentProvider>(agentData);
-                if (agentData.BlackBoardData != null)
-                    Service.SetInstance<IBlackboardKeyProvider>(agentData.BlackBoardData);
+                Service.Set<IScriptableAgentProvider>(ScriptableAgentProvider.Empty);
+                Service.Set<IBlackboardKeyProvider>(BlackboardKeyProvider.Empty);
             }
         }
 #endif

@@ -88,45 +88,28 @@ namespace BlackboardSystem
         {
             if (Service.TryGet<IBlackboardKeyProvider>(out var provider))
             {
-                var keys = provider.GetKeys<T>(); 
-                if (keys != null) return keys;
+                var keys = provider.GetKeys<T>().ToArray(); 
+                if (keys.Length > 0) return keys;
 
                 return new string[] { $"No keys of type {typeof(T).Name} found" };
             }
 
-            return new string[] { "Assign a Blackboard to Scene" };
+            return new string[] { "Set a Blackboard asset to see keys" };
         }
 
         private void ValidateKey()
         {
             if (_bindType != BindType.BlackboardKey || string.IsNullOrWhiteSpace(_blackboardKey)) return;
-
             if (Application.isPlaying) return;
 
             if (Service.TryGet<IBlackboardKeyProvider>(out var provider))
             {
-                IEnumerable<string> validKeys = null;
-                try
-                {
-                    validKeys = provider.GetKeys();
-                }
-                catch { /*provider not ready*/ }
-
+                var validKeys = provider.GetKeys();
                 if (validKeys == null) return;
                 
-                bool keyExist = false;
-                foreach (var key in validKeys)
+                if (!validKeys.Contains(_blackboardKey))
                 {
-                    if (key == _blackboardKey)
-                    {
-                        keyExist = true;
-                        break;
-                    }
-                }
-
-                if (!keyExist)
-                {
-                    Sirenix.Utilities.Editor.SirenixEditorGUI.ErrorMessageBox($"Key '{_blackboardKey}' not found in Blackboard!");
+                    Sirenix.Utilities.Editor.SirenixEditorGUI.ErrorMessageBox($"Key '{_blackboardKey}' not found in the current Agent's Blackboard!");
                 }
             }
         }

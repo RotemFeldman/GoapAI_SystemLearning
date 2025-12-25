@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using BlackboardSystem.Unity;
 using Sirenix.OdinInspector;
+using Sisus.Init;
 using UnityEditor;
 using UnityEngine;
 
@@ -35,6 +36,17 @@ namespace GOAP.Scriptable
         #endregion
 
         #region Editor Support
+
+        [OnInspectorGUI]
+        private void SetupProviders()
+        {
+            if(Application.isPlaying) return;
+            
+            Service.Set<IScriptableAgentProvider>(this);
+            
+            IBlackboardKeyProvider provider = (blackBoardData != null) ? blackBoardData : BlackboardKeyProvider.Empty;
+            Service.Set<IBlackboardKeyProvider>(provider);
+        }
 
 #if UNITY_EDITOR
         private void DrawBeliefElementLabel(int index)
